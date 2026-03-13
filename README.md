@@ -117,11 +117,3 @@ pytest tests/ -v
 - La herramienta **no constituye diagnóstico**.
 
 ---
-
-## Tareas pendientes
-
-- [ ] Validar con la psiquiatra los rangos de interpretación por dominio
-- [ ] Validar dirección (directa/inversa) de los 20 ítems inversos del Test 1
-- [ ] Añadir baremos de referencia si se dispone de muestra normativa
-- [ ] Mejorar el PDF: incrustar los gráficos Plotly como imágenes
-- [ ] Autenticación / historiales de pacientes si se requiere
