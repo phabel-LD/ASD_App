@@ -45,6 +45,7 @@ _DEF: dict = {
     "test_completados": set(),
     "test2_externo":  None,
     "idx": {1: 0, 3: 0},
+    "cola":           {1: [], 3: []},
     "nombre":         "",
     "pesos":          {1: 1.0, 2: 1.0, 3: 1.0},
 }
@@ -165,49 +166,56 @@ Resultados unificados en **4 dominios** (escala 0–3):
 # CUESTIONARIO GENÉRICO (Test 1 y RAADS-R)
 # ══════════════════════════════════════════════════════════════════════════════
 def pagina_cuestionario(test_id: int):
-    df_test = preguntas_de_test(df, test_id)
-    total   = len(df_test)
-    ids_set = set(df_test["id"].tolist())
+    df_test  = preguntas_de_test(df, test_id)
+    total    = len(df_test)
+    ids_list = df_test["id"].tolist()
+    ids_set  = set(ids_list)
 
     st.title(NOMBRES_TEST[test_id])
+
+    # ── Inicializar cola si está vacía ────────────────────────────────────────
+    # La cola es una lista de posiciones (índices en df_test) en orden de presentación.
+    # Las preguntas saltadas (sin respuesta al avanzar) se mueven al final.
+    cola = st.session_state["cola"][test_id]
+    if not cola:
+        cola = list(range(total))
+        st.session_state["cola"][test_id] = cola
 
     # Progreso
     n_resp = len(ids_set & set(st.session_state["respuestas"]))
     st.progress(n_resp / total, text=f"Respondidas: **{n_resp} / {total}**")
 
-    # Índice actual
+    # Índice actual dentro de la cola
     idx = st.session_state["idx"].get(test_id, 0)
-    idx = max(0, min(idx, total - 1))
+    idx = max(0, min(idx, len(cola) - 1))
 
-    row    = df_test.iloc[idx]
-    pid    = int(row["id"])
-    dom    = row["dominio"]
-    icono  = ICONOS_DOMINIO.get(dom, "❓")
-    opts   = obtener_opciones_lista(row)
-    inv    = row["direccion"] == "inversa"
+    pos_en_cola = cola[idx]          # posición real en df_test
+    row   = df_test.iloc[pos_en_cola]
+    pid   = int(row["id"])
+    dom   = row["dominio"]
+    icono = ICONOS_DOMINIO.get(dom, "❓")
+    opts  = obtener_opciones_lista(row)
+    inv   = row["direccion"] == "inversa"
 
     # Encabezado de pregunta
-    col_hdr, col_salto = st.columns([5, 1])
+    col_hdr, col_nav = st.columns([5, 1])
     with col_hdr:
         marcas = f"{icono} *{dom}*"
         if inv:
             marcas += "  🔄 *ítem inverso*"
-        st.markdown(f"**Pregunta {idx+1} de {total}** &nbsp; {marcas}")
-    with col_salto:
+        st.markdown(f"**Pregunta {idx+1} de {len(cola)}** &nbsp; {marcas}")
+    with col_nav:
         nuevo = st.number_input(
-            "Ir a", min_value=1, max_value=total, value=idx+1, step=1,
+            "Ir a", min_value=1, max_value=len(cola), value=idx+1, step=1,
             label_visibility="collapsed", key=f"salto_{test_id}",
         )
-        if nuevo - 1 != idx:
-            st.session_state["idx"][test_id] = nuevo - 1
-            st.rerun()
 
     st.markdown(f"### {row['texto']}")
     if row["notas"]:
         st.caption(f"📌 {row['notas']}")
 
     # Respuesta
-    prev  = st.session_state["respuestas"].get(pid)
+    prev   = st.session_state["respuestas"].get(pid)
     i_prev = list(opts.keys()).index(prev) if prev in opts else None
 
     resp = st.radio(
@@ -218,39 +226,39 @@ def pagina_cuestionario(test_id: int):
         key=f"r_{test_id}_{pid}",
     )
     if resp is None:
-        st.info("Selecciona una opción para continuar.")
+        st.info("Sin respuesta — al avanzar (＋) esta pregunta se moverá al final.")
 
-    # Guardar y navegar
-    def _ir(nuevo_idx: int):
-        if resp is not None:
-            st.session_state["respuestas"][pid] = resp
-        st.session_state["idx"][test_id] = nuevo_idx
-        st.rerun()
+    # ── Lógica de navegación con +/- ──────────────────────────────────────────
+    nuevo_idx = nuevo - 1
 
-    _, col_n = st.columns([5, 1])
-    #if idx > 0 and col_p.button("← Anterior", use_container_width=True):
-    #    _ir(idx - 1)
-
-    if idx < total - 1:
-        if col_n.button("Guardar", use_container_width=True, type="primary"):
-            if resp is None:
-                st.warning("Selecciona una opción antes de continuar.")
-            else:
-                _ir(idx + 1)
-    else:
-        if col_n.button("✅ Finalizar", use_container_width=True, type="primary"):
+    if nuevo_idx != idx:
+        if nuevo_idx > idx:
+            # Avanzar (＋): guardar si hay respuesta; saltar al final si no
             if resp is not None:
                 st.session_state["respuestas"][pid] = resp
-            n_fin = len(ids_set & set(st.session_state["respuestas"]))
-            sin   = total - n_fin
-            if sin > 0:
-                st.warning(f"{sin} preguntas sin responder. Puedes finalizar igualmente.")
-                if st.button("Finalizar con preguntas pendientes", key=f"forzar_{test_id}"):
-                    st.session_state["test_completados"].add(test_id)
-                    st.session_state["pagina"] = "inicio"
-                    st.balloons()
-                    st.rerun()
             else:
+                # Reencolar al final
+                cola.append(cola.pop(idx))
+                st.session_state["cola"][test_id] = cola
+                st.session_state["idx"][test_id] = min(idx, len(cola) - 1)
+                st.rerun()
+        # Retroceder (−): solo navega, sin tocar respuestas ni cola
+        st.session_state["idx"][test_id] = max(0, min(nuevo_idx, len(cola) - 1))
+        st.rerun()
+
+    # ── Finalizar al llegar al último de la cola ──────────────────────────────
+    if idx == len(cola) - 1:
+        if resp is not None:
+            if st.button("✅ Finalizar", use_container_width=True, type="primary"):
+                st.session_state["respuestas"][pid] = resp
+                st.session_state["test_completados"].add(test_id)
+                st.session_state["pagina"] = "inicio"
+                st.balloons()
+                st.rerun()
+        else:
+            n_sin = total - len(ids_set & set(st.session_state["respuestas"]))
+            st.warning(f"{n_sin} pregunta(s) sin responder.")
+            if st.button("Finalizar con preguntas pendientes", key=f"forzar_{test_id}"):
                 st.session_state["test_completados"].add(test_id)
                 st.session_state["pagina"] = "inicio"
                 st.balloons()
