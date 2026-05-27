@@ -237,12 +237,13 @@ def pagina_cuestionario(test_id: int):
             if st.button("Siguiente →", use_container_width=True, type="primary"):
                 if resp is not None:
                     st.session_state["respuestas"][pid] = resp
+                    st.session_state["idx"][test_id] = idx + 1
                 else:
-                    # Sin respuesta: mover al final de la cola
+                    # Sin respuesta: mover al final de la cola, idx queda igual
+                    # (ahora apunta al elemento que era idx+1)
                     cola.append(cola.pop(idx))
                     st.session_state["cola"][test_id] = cola
-                    # idx sin cambio → ahora apunta al siguiente elemento
-                st.session_state["idx"][test_id] = idx
+                    st.session_state["idx"][test_id] = idx
                 st.rerun()
         else:
             if st.button("✅ Finalizar", use_container_width=True, type="primary"):
