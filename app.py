@@ -221,43 +221,30 @@ def pagina_cuestionario(test_id: int):
     st.divider()
  
     # ── Botones de navegación ─────────────────────────────────────────────────
-    col_ant, col_num, col_sig = st.columns([2, 3, 2])
+    es_ultimo = (idx == len(cola) - 1)
+    col_ant, col_sig = st.columns(2)
  
     # — Anterior —
     with col_ant:
         if idx > 0:
             if st.button("← Anterior", use_container_width=True):
-                # Solo navega, no modifica respuestas ni cola
                 st.session_state["idx"][test_id] = idx - 1
                 st.rerun()
  
-    # — Salto directo por número —
-    with col_num:
-        salto = st.number_input(
-            "Ir a pregunta", min_value=1, max_value=len(cola),
-            value=idx + 1, step=1, key=f"salto_{test_id}",
-        )
-        if st.button("Ir", use_container_width=True, key=f"ir_{test_id}"):
-            st.session_state["idx"][test_id] = salto - 1
-            st.rerun()
- 
     # — Siguiente / Finalizar —
     with col_sig:
-        es_ultimo = (idx == len(cola) - 1)
- 
         if not es_ultimo:
             if st.button("Siguiente →", use_container_width=True, type="primary"):
                 if resp is not None:
                     st.session_state["respuestas"][pid] = resp
                 else:
-                    # Saltar: mover al final de la cola
+                    # Sin respuesta: mover al final de la cola
                     cola.append(cola.pop(idx))
                     st.session_state["cola"][test_id] = cola
-                    # idx se queda igual → apunta al siguiente elemento
-                st.session_state["idx"][test_id] = idx  # ya apunta al correcto
+                    # idx sin cambio → ahora apunta al siguiente elemento
+                st.session_state["idx"][test_id] = idx
                 st.rerun()
         else:
-            # Último elemento de la cola
             if st.button("✅ Finalizar", use_container_width=True, type="primary"):
                 if resp is not None:
                     st.session_state["respuestas"][pid] = resp
