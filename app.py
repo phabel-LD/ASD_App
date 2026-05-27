@@ -1,15 +1,15 @@
 """
 app.py – Sistema Integrado de Evaluación del Espectro Autista.
-
+ 
 Ejecutar con:
     streamlit run app.py
 """
 import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
-
+ 
 import streamlit as st
-
+ 
 st.set_page_config(
     page_title="Evaluación TEA",
     page_icon="🧩",
@@ -23,7 +23,7 @@ st.markdown("""
   div[data-testid="stRadio"] label { font-size: 0.96rem; }
 </style>
 """, unsafe_allow_html=True)
-
+ 
 from src.utils import (
     cargar_preguntas, preguntas_de_test, obtener_opciones_lista,
     porcentaje_completado, DOMINIOS, ICONOS_DOMINIO, NOMBRES_TEST,
@@ -34,10 +34,10 @@ from src.calculador import (
 from src.visualizador import (
     crear_radar, crear_barras_por_test, crear_gauge_raads, crear_tabla_detalles,
 )
-
+ 
 # ── Datos ─────────────────────────────────────────────────────────────────────
 df = cargar_preguntas()
-
+ 
 # ── Estado de sesión ──────────────────────────────────────────────────────────
 _DEF: dict = {
     "pagina":         "inicio",
@@ -53,7 +53,7 @@ for k, v in _DEF.items():
     if k not in st.session_state:
         st.session_state[k] = (set() if isinstance(v, set) else
                                dict(v) if isinstance(v, dict) else v)
-
+ 
 # ── Sidebar ───────────────────────────────────────────────────────────────────
 PAGINAS = {
     "🏠 Inicio":           "inicio",
@@ -62,7 +62,7 @@ PAGINAS = {
     "📊 RAADS-R":          "test3",
     "📄 Informe":          "informe",
 }
-
+ 
 with st.sidebar:
     st.title("🧩 Evaluación TEA")
     st.divider()
@@ -73,21 +73,21 @@ with st.sidebar:
         label_visibility="collapsed",
     )
     st.session_state["pagina"] = PAGINAS[sel]
-
+ 
     st.divider()
     st.caption("**Estado de tests:**")
     comp = st.session_state["test_completados"]
     for tid, lbl in [(1, "Test 1"), (2, "Test 2"), (3, "RAADS-R")]:
         st.caption(("✅ " if tid in comp else "⭕ ") + lbl)
-
+ 
     st.divider()
     if st.button("🔄 Reiniciar todo", use_container_width=True):
         for k, v in _DEF.items():
             st.session_state[k] = (set() if isinstance(v, set) else
                                    dict(v) if isinstance(v, dict) else v)
         st.rerun()
-
-
+ 
+ 
 # ══════════════════════════════════════════════════════════════════════════════
 # INICIO
 # ══════════════════════════════════════════════════════════════════════════════
@@ -102,7 +102,7 @@ def pagina_inicio():
         "el juicio profesional ni constituye un diagnóstico.",
         icon="⚠️",
     )
-
+ 
     col1, col2 = st.columns([3, 2])
     with col1:
         st.subheader("Tests incluidos")
@@ -112,7 +112,7 @@ def pagina_inicio():
 | 1 | Cuestionario propio | 50 | 1-4 |
 | 2 | Test online adaptativo | Externo | por dominio |
 | 3 | RAADS-R | 80 | 0-3 |
-
+ 
 Resultados unificados en **4 dominios** (escala 0–3):  
 👥 Social · 💬 Comunicación · 🎵 Sensorial · 🔍 Intereses
         """)
@@ -123,7 +123,7 @@ Resultados unificados en **4 dominios** (escala 0–3):
         )
         if nombre != st.session_state["nombre"]:
             st.session_state["nombre"] = nombre
-
+ 
     with col2:
         st.subheader("Progreso actual")
         for tid in [1, 3]:
@@ -138,7 +138,7 @@ Resultados unificados en **4 dominios** (escala 0–3):
             st.success("✅ Test 2 — Resultado registrado")
         else:
             st.warning("⭕ Test 2 — Pendiente")
-
+ 
     st.divider()
     c1, c2, c3, c4 = st.columns(4)
     btn = lambda label, pag, col, primary=False: col.button(
@@ -160,8 +160,8 @@ Resultados unificados en **4 dominios** (escala 0–3):
             st.session_state["pagina"] = "informe"; st.rerun()
         if not hay_datos:
             c4.caption("Completa al menos un test")
-
-
+ 
+ 
 # ══════════════════════════════════════════════════════════════════════════════
 # CUESTIONARIO GENÉRICO (Test 1 y RAADS-R)
 # ══════════════════════════════════════════════════════════════════════════════
@@ -170,55 +170,45 @@ def pagina_cuestionario(test_id: int):
     total    = len(df_test)
     ids_list = df_test["id"].tolist()
     ids_set  = set(ids_list)
-
+ 
     st.title(NOMBRES_TEST[test_id])
-
-    # ── Inicializar cola si está vacía ────────────────────────────────────────
-    # La cola es una lista de posiciones (índices en df_test) en orden de presentación.
-    # Las preguntas saltadas (sin respuesta al avanzar) se mueven al final.
+ 
+    # ── Inicializar cola ──────────────────────────────────────────────────────
+    # Lista de posiciones (índices en df_test). Las preguntas saltadas sin
+    # respuesta se mueven al final cuando el usuario presiona "Siguiente".
     cola = st.session_state["cola"][test_id]
     if not cola:
         cola = list(range(total))
         st.session_state["cola"][test_id] = cola
-
-    # Progreso
-    n_resp = len(ids_set & set(st.session_state["respuestas"]))
-    st.progress(n_resp / total, text=f"Respondidas: **{n_resp} / {total}**")
-
+ 
     # Índice actual dentro de la cola
     idx = st.session_state["idx"].get(test_id, 0)
     idx = max(0, min(idx, len(cola) - 1))
-
-    pos_en_cola = cola[idx]          # posición real en df_test
+ 
+    # Progreso
+    n_resp = len(ids_set & set(st.session_state["respuestas"]))
+    st.progress(n_resp / total, text=f"Respondidas: **{n_resp} / {total}**")
+ 
+    # Pregunta actual
+    pos_en_cola = cola[idx]
     row   = df_test.iloc[pos_en_cola]
     pid   = int(row["id"])
     dom   = row["dominio"]
     icono = ICONOS_DOMINIO.get(dom, "❓")
     opts  = obtener_opciones_lista(row)
     inv   = row["direccion"] == "inversa"
-
-    # Encabezado de pregunta
-    col_hdr, col_nav = st.columns([5, 1])
-    with col_hdr:
-        marcas = f"{icono} *{dom}*"
-        if inv:
-            marcas += "  🔄 *ítem inverso*"
-        st.markdown(f"**Pregunta {idx+1} de {len(cola)}** &nbsp; {marcas}")
-    with col_nav:
-        nuevo = st.number_input(
-            "Ir a", min_value=1, max_value=len(cola), value=idx+1, step=1,
-            label_visibility="collapsed", key=f"salto_{test_id}",
-        )
-
+ 
+    # Encabezado
+    marcas = f"{icono} *{dom}*" + ("  🔄 *ítem inverso*" if inv else "")
+    st.markdown(f"**Pregunta {idx + 1} de {len(cola)}** &nbsp; {marcas}")
     st.markdown(f"### {row['texto']}")
     if row["notas"]:
         st.caption(f"📌 {row['notas']}")
-
-    # Respuesta
+ 
+    # Radio de respuesta
     prev   = st.session_state["respuestas"].get(pid)
     i_prev = list(opts.keys()).index(prev) if prev in opts else None
-
-    resp = st.radio(
+    resp   = st.radio(
         "Selecciona una opción:",
         options=list(opts.keys()),
         format_func=lambda x: opts[x],
@@ -226,44 +216,65 @@ def pagina_cuestionario(test_id: int):
         key=f"r_{test_id}_{pid}",
     )
     if resp is None:
-        st.info("Sin respuesta — al avanzar (＋) esta pregunta se moverá al final.")
-
-    # ── Lógica de navegación con +/- ──────────────────────────────────────────
-    nuevo_idx = nuevo - 1
-
-    if nuevo_idx != idx:
-        if nuevo_idx > idx:
-            # Avanzar (＋): guardar si hay respuesta; saltar al final si no
-            if resp is not None:
-                st.session_state["respuestas"][pid] = resp
-            else:
-                # Reencolar al final
-                cola.append(cola.pop(idx))
-                st.session_state["cola"][test_id] = cola
-                st.session_state["idx"][test_id] = min(idx, len(cola) - 1)
+        st.caption("💡 Sin respuesta — si avanzas, esta pregunta aparecerá al final.")
+ 
+    st.divider()
+ 
+    # ── Botones de navegación ─────────────────────────────────────────────────
+    col_ant, col_num, col_sig = st.columns([2, 3, 2])
+ 
+    # — Anterior —
+    with col_ant:
+        if idx > 0:
+            if st.button("← Anterior", use_container_width=True):
+                # Solo navega, no modifica respuestas ni cola
+                st.session_state["idx"][test_id] = idx - 1
                 st.rerun()
-        # Retroceder (−): solo navega, sin tocar respuestas ni cola
-        st.session_state["idx"][test_id] = max(0, min(nuevo_idx, len(cola) - 1))
-        st.rerun()
-
-    # ── Finalizar al llegar al último de la cola ──────────────────────────────
-    if idx == len(cola) - 1:
-        if resp is not None:
-            if st.button("✅ Finalizar", use_container_width=True, type="primary"):
-                st.session_state["respuestas"][pid] = resp
-                st.session_state["test_completados"].add(test_id)
-                st.session_state["pagina"] = "inicio"
-                st.balloons()
+ 
+    # — Salto directo por número —
+    with col_num:
+        salto = st.number_input(
+            "Ir a pregunta", min_value=1, max_value=len(cola),
+            value=idx + 1, step=1, key=f"salto_{test_id}",
+        )
+        if st.button("Ir", use_container_width=True, key=f"ir_{test_id}"):
+            st.session_state["idx"][test_id] = salto - 1
+            st.rerun()
+ 
+    # — Siguiente / Finalizar —
+    with col_sig:
+        es_ultimo = (idx == len(cola) - 1)
+ 
+        if not es_ultimo:
+            if st.button("Siguiente →", use_container_width=True, type="primary"):
+                if resp is not None:
+                    st.session_state["respuestas"][pid] = resp
+                else:
+                    # Saltar: mover al final de la cola
+                    cola.append(cola.pop(idx))
+                    st.session_state["cola"][test_id] = cola
+                    # idx se queda igual → apunta al siguiente elemento
+                st.session_state["idx"][test_id] = idx  # ya apunta al correcto
                 st.rerun()
         else:
-            n_sin = total - len(ids_set & set(st.session_state["respuestas"]))
-            st.warning(f"{n_sin} pregunta(s) sin responder.")
-            if st.button("Finalizar con preguntas pendientes", key=f"forzar_{test_id}"):
-                st.session_state["test_completados"].add(test_id)
-                st.session_state["pagina"] = "inicio"
-                st.balloons()
-                st.rerun()
-
+            # Último elemento de la cola
+            if st.button("✅ Finalizar", use_container_width=True, type="primary"):
+                if resp is not None:
+                    st.session_state["respuestas"][pid] = resp
+                n_sin = total - len(ids_set & set(st.session_state["respuestas"]))
+                if n_sin > 0:
+                    st.warning(f"{n_sin} pregunta(s) sin responder. Puedes finalizar igualmente.")
+                    if st.button("Confirmar finalización", key=f"forzar_{test_id}"):
+                        st.session_state["test_completados"].add(test_id)
+                        st.session_state["pagina"] = "inicio"
+                        st.balloons()
+                        st.rerun()
+                else:
+                    st.session_state["test_completados"].add(test_id)
+                    st.session_state["pagina"] = "inicio"
+                    st.balloons()
+                    st.rerun()
+ 
     # Sidebar: progreso por dominio
     with st.sidebar:
         st.divider()
@@ -276,8 +287,8 @@ def pagina_cuestionario(test_id: int):
             n_d    = len(preg_d)
             st.caption(f"{ICONOS_DOMINIO[dom_s]} {dom_s}: {resp_d}/{n_d}")
             st.progress(resp_d / n_d)
-
-
+ 
+ 
 # ══════════════════════════════════════════════════════════════════════════════
 # TEST 2 (externo)
 # ══════════════════════════════════════════════════════════════════════════════
@@ -287,7 +298,7 @@ _CAT_T2 = {
     "Indicadores moderados": 2.0,
     "Indicadores significativos": 3.0,
 }
-
+ 
 def pagina_test2():
     st.title("🔗 Test 2 – Test Online Adaptativo")
     st.markdown(
@@ -296,10 +307,10 @@ def pagina_test2():
     )
     st.link_button("🔗 Abrir Test 2 en Autism360", "https://www.autism360.com/autism-test-for-adults/", use_container_width=True)
     st.divider()
-
+ 
     prev = st.session_state.get("test2_externo") or {}
     resultado: dict[str, float] = {}
-
+ 
     col1, col2 = st.columns(2)
     for dom, col in zip(DOMINIOS, [col1, col1, col2, col2]):
         with col:
@@ -327,25 +338,25 @@ def pagina_test2():
                 )
             st.caption(f"Valor → **{resultado[dom]:.2f}** / 3.00")
             st.divider()
-
+ 
     if st.button("✅ Guardar resultado del Test 2", type="primary", use_container_width=True):
         st.session_state["test2_externo"] = resultado
         st.session_state["test_completados"].add(2)
         st.success("✅ Resultado guardado correctamente.")
         st.balloons()
-
-
+ 
+ 
 # ══════════════════════════════════════════════════════════════════════════════
 # INFORME
 # ══════════════════════════════════════════════════════════════════════════════
 def pagina_informe():
     st.title("📄 Informe Unificado")
-
+ 
     comp = st.session_state["test_completados"]
     if not comp:
         st.warning("Completa al menos un test para ver el informe.")
         return
-
+ 
     # Pesos configurables
     with st.expander("⚙️ Ponderación de tests (opcional)", expanded=False):
         st.caption("Ajusta la influencia relativa de cada test en la media global.")
@@ -361,9 +372,9 @@ def pagina_informe():
         if st.button("Aplicar pesos"):
             st.session_state["pesos"] = pesos
             st.rerun()
-
+ 
     pesos_act = {k: v for k, v in st.session_state["pesos"].items() if k in comp}
-
+ 
     # Calcular
     res = calcular_puntuaciones(
         respuestas=st.session_state["respuestas"],
@@ -371,7 +382,7 @@ def pagina_informe():
         test2_externo=st.session_state["test2_externo"],
         pesos=pesos_act or None,
     )
-
+ 
     # ── Métricas ────────────────────────────────────────────────────────────
     st.subheader("Perfil global")
     cols_m = st.columns(4)
@@ -388,16 +399,16 @@ def pagina_informe():
                 f"<span style='color:{color}; font-weight:600'>{etiq}</span>",
                 unsafe_allow_html=True,
             )
-
+ 
     st.divider()
-
+ 
     # ── Gráficos ────────────────────────────────────────────────────────────
     cg1, cg2 = st.columns(2)
     with cg1:
         st.plotly_chart(crear_radar(res["global_por_dominio"]), use_container_width=True)
     with cg2:
         st.plotly_chart(crear_barras_por_test(res["por_test"]), use_container_width=True)
-
+ 
     # ── RAADS-R ─────────────────────────────────────────────────────────────
     if 3 in comp:
         st.subheader("Puntuación RAADS-R")
@@ -422,9 +433,9 @@ def pagina_informe():
                 f"con corte en {RAADS_PUNTO_CORTE}/240. "
                 "Una puntuación elevada es sugestiva, no diagnóstica."
             )
-
+ 
     st.divider()
-
+ 
     # ── Tabla de detalle ─────────────────────────────────────────────────────
     st.subheader("Detalle por test y dominio")
     _pd = __import__("pandas")
@@ -432,9 +443,9 @@ def pagina_informe():
         _pd.DataFrame(crear_tabla_detalles(res["por_test"])),
         use_container_width=True, hide_index=True,
     )
-
+ 
     st.divider()
-
+ 
     # ── Exportar PDF ─────────────────────────────────────────────────────────
     st.subheader("Exportar")
     ce1, ce2 = st.columns([2, 3])
@@ -454,8 +465,8 @@ def pagina_informe():
             "El PDF incluye perfil global por dominio, puntuación RAADS-R "
             "y tabla comparativa entre tests."
         )
-
-
+ 
+ 
 # ══════════════════════════════════════════════════════════════════════════════
 # ROUTER
 # ══════════════════════════════════════════════════════════════════════════════
