@@ -65,6 +65,7 @@ PAGINAS = {
  
 with st.sidebar:
     st.title("🧩 Evaluación TEA")
+    st.caption("Basado en el DSM-5")
     st.divider()
     sel = st.radio(
         "Navegar a",
@@ -93,6 +94,7 @@ with st.sidebar:
 # ══════════════════════════════════════════════════════════════════════════════
 def pagina_inicio():
     st.title("🧩 Sistema de Evaluación del Espectro Autista")
+    st.caption("Basado en el DSM-5")
     st.markdown(
         "Herramienta que integra **dos cuestionarios** y el **RAADS-R** en un "
         "informe unificado por dominio clínico."
