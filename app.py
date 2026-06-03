@@ -57,7 +57,7 @@ for k, v in _DEF.items():
 PAGINAS = {
     "🏠 Inicio":           "inicio",
     "📝 Test 1":           "test1",
-    "📊 RAADS-R":          "test3",
+    "📊 RAADS-R":          "test2",
     "📄 Informe":          "informe",
 }
 
@@ -144,15 +144,15 @@ Resultados unificados en **4 dominios** (escala 0–3):
         if btn("▶️ Test 1", "test1", c1, True):
             st.session_state["pagina"] = "test1"; st.rerun()
     with c2:
-        if btn("▶️ RAADS-R", "test3", c3):
-            st.session_state["pagina"] = "test3"; st.rerun()
-    with c4:
+        if btn("▶️ RAADS-R", "test2", c2):
+            st.session_state["pagina"] = "test2"; st.rerun()
+    with c3:
         hay_datos = len(st.session_state["test_completados"]) > 0
-        if c4.button("📄 Informe", use_container_width=True,
+        if c3.button("📄 Informe", use_container_width=True,
                      type="primary", disabled=not hay_datos):
             st.session_state["pagina"] = "informe"; st.rerun()
         if not hay_datos:
-            c4.caption("Completa al menos un test")
+            c3.caption("Completa al menos un test")
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -396,5 +396,5 @@ def pagina_informe():
 pag = st.session_state["pagina"]
 if   pag == "inicio":  pagina_inicio()
 elif pag == "test1":   pagina_cuestionario(1)
-elif pag == "test3":   pagina_cuestionario(3)
+elif pag == "test2":   pagina_cuestionario(2)
 elif pag == "informe": pagina_informe()
