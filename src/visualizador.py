@@ -68,7 +68,7 @@ def crear_barras_por_test(resultados_por_test: dict) -> go.Figure:
     fig = go.Figure()
     x_labels = [_LABELS[d] for d in DOMINIOS]
 
-    for tid in [1, 2, 3]:
+    for tid in [1, 3]:
         res = resultados_por_test.get(tid)
         if res is None:
             continue
@@ -138,12 +138,12 @@ def crear_gauge_raads(raads_bruta: int) -> go.Figure:
 def crear_tabla_detalles(resultados_por_test: dict) -> list[dict]:
     """
     Lista de dicts para st.dataframe.
-    Columnas: Dominio | Test 1 | Test 2 | RAADS-R | Global
+    Columnas: Dominio | Test 1 | RAADS-R
     """
     filas = []
     for dom in DOMINIOS:
         fila = {"Dominio": _LABELS[dom]}
-        for tid, col in [(1, "Test 1"), (2, "Test 2"), (3, "RAADS-R")]:
+        for tid, col in [(1, "Test 1"), (3, "RAADS-R")]:
             res = resultados_por_test.get(tid)
             if res is None:
                 fila[col] = "—"

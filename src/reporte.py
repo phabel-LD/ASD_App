@@ -150,10 +150,10 @@ def generar_pdf(resultado: dict, nombre_evaluado: str = "") -> bytes:
     # ── 4. Detalle por test y dominio ──────────────────────────────────────────
     e.append(Paragraph("3. Detalle por test y dominio", _ST["h2"]))
     por_test = resultado["por_test"]
-    datos_det = [["Dominio", "Test 1", "Test 2", "RAADS-R"]]
+    datos_det = [["Dominio", "Test 1", "RAADS-R"]]
     for dom in DOMINIOS:
         fila = [_DOM_LABEL[dom]]
-        for tid in [1, 2, 3]:
+        for tid in [1, 3]:
             res = por_test.get(tid)
             if res is None:
                 fila.append("—")
@@ -162,7 +162,7 @@ def generar_pdf(resultado: dict, nombre_evaluado: str = "") -> bytes:
                 fila.append(f"{m:.2f}" if m is not None else "—")
         datos_det.append(fila)
 
-    t_det = Table(datos_det, colWidths=[5*cm, 3.5*cm, 3.5*cm, 4*cm])
+    t_det = Table(datos_det, colWidths=[5*cm, 4*cm, 4*cm])
     t_det.setStyle(TableStyle(_ESTILO_TABLA_BASE + [
         ("ALIGN", (1, 0), (-1, -1), "CENTER"),
     ]))

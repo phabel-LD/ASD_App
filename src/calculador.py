@@ -18,7 +18,7 @@ from src.utils import DOMINIOS
 RAADS_PUNTO_CORTE = 65
 RAADS_MAX         = 240   # 80 ítems × 3
 
-PESOS_DEFAULT: dict[int, float] = {1: 1.0, 2: 1.0, 3: 1.0}
+PESOS_DEFAULT: dict[int, float] = {1: 1.0, 3: 1.0}
 
 
 # ── Interpretación ─────────────────────────────────────────────────────────────
@@ -111,37 +111,11 @@ def calcular_puntuaciones_test(
     }
 
 
-def calcular_puntuaciones_test2_externo(
-    resultado_externo: dict[str, float],
-) -> dict:
-    """
-    Adapta el resultado del Test 2 (comercial, un valor por dominio)
-    al mismo formato de salida que calcular_puntuaciones_test().
-    """
-    por_dominio: dict[str, dict] = {}
-    for dom in DOMINIOS:
-        val = resultado_externo.get(dom)
-        por_dominio[dom] = {
-            "media":   float(val) if val is not None else None,
-            "n":       1 if val is not None else 0,
-            "valores": [val] if val is not None else [],
-        }
-    n_resp = sum(1 for d in por_dominio.values() if d["n"] > 0)
-    return {
-        "por_dominio":       por_dominio,
-        "total_items":       len(DOMINIOS),
-        "items_respondidos": n_resp,
-        "completado":        n_resp == len(DOMINIOS),
-        "raads_bruta":       None,
-    }
-
-
 # ── Informe global ─────────────────────────────────────────────────────────────
 
 def calcular_puntuaciones(
     respuestas: dict[int, int],
     df_preguntas: pd.DataFrame,
-    test2_externo: dict[str, float] | None = None,
     pesos: dict[int, float] | None = None,
 ) -> dict:
     """
@@ -151,16 +125,15 @@ def calcular_puntuaciones(
     ----------
     respuestas    : {id_pregunta: valor_raw} para Test1 y RAADS-R
     df_preguntas  : DataFrame completo cargado con cargar_preguntas()
-    test2_externo : {dominio: valor_0_3} introducido manualmente (puede ser None)
     pesos         : {test_id: peso_float}; por defecto todos = 1.0
 
     Returns
     -------
     {
-      "por_test":             {1: res1, 2: res2|None, 3: res3},
+      "por_test":             {1: res1, 3: res3},
       "global_por_dominio":   {dominio: {"media_ponderada", "etiqueta", "color", "contribuciones"}},
       "raads_bruta":          int,
-      "raads_pct":            float,          # fracción 0-1
+      "raads_pct":            float,
       "raads_sobre_corte":    bool,
       "raads_interpretacion": str,
       "raads_color":          str,
@@ -168,13 +141,12 @@ def calcular_puntuaciones(
     }
     """
     if pesos is None:
-        pesos = PESOS_DEFAULT.copy()
+        pesos = {1: 1.0, 3: 1.0}
 
     r1 = calcular_puntuaciones_test(1, respuestas, df_preguntas)
     r3 = calcular_puntuaciones_test(3, respuestas, df_preguntas)
-    r2 = calcular_puntuaciones_test2_externo(test2_externo) if test2_externo else None
 
-    resultados: dict[int, dict | None] = {1: r1, 2: r2, 3: r3}
+    resultados: dict[int, dict | None] = {1: r1, 3: r3}
 
     # ── Media ponderada global por dominio ────────────────────────────────────
     global_por_dominio: dict[str, dict] = {}
