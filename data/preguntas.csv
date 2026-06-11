@@ -1,4 +1,4 @@
-﻿id,test_id,orden,texto,dominio,direccion,escala_origen,opcion_a,opcion_b,opcion_c,opcion_d,opcion_e,notas
+id,test_id,orden,texto,dominio,direccion,escala_origen,opcion_a,opcion_b,opcion_c,opcion_d,opcion_e,notas
 1,1,1,Prefiero realizar actividades por mi cuenta en lugar de con otros.,Social,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
 2,1,2,Me siento incÃ³modo/a en situaciones sociales.,Social,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
 3,1,3,A menudo no sÃ© cÃ³mo actuar en situaciones sociales.,Social,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
@@ -168,13 +168,13 @@
 167,3,167,A menudo me dicen que hago preguntas embarazosas.,Comunicacion,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
 168,3,168,Suelo seÃ±alar los errores de los demÃ¡s.,Comunicacion,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
 169,3,169,"Un mismo sonido a veces me parece muy fuerte o muy suave, aunque sÃ© que no ha cambiado.",Sensorial,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
-170,4,170,Con frecuencia noto sonidos diminutos que otros no perciben.,Sensorial,directa,0-3,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,AQ-10
-171,4,171,Por lo general me concentro mÃ¡s en el panorama general que en los detalles menores.,Intereses,inversa,0-3,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,AQ-10
-172,4,171,Me resulta fÃ¡cil  hacer mas de una cosa a la vez.,Intereses,inversa,0-3,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,AQ-10
-173,4,171,"Si hay una interrupciÃ³n, puedo retomar sencillamente lo que estaba haciendo.",Intereses,inversa,0-3,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,AQ-10
-174,4,171,Me resulta sencillo leer entre lÃ­neas cuando alguien me habla.,Comunicacion,inversa,0-3,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,AQ-10
-175,4,171,Se cuando alguien que me escucha se esta aburriendo.,Comunicacion,inversa,0-3,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,AQ-10
-176,4,171,"Cuando leo una historia, me cuesta entender las intenciones de los personajes.",Social,directa,0-3,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,AQ-10
-177,4,171,"Me gusta coleccionar informaciÃ³n sobre categorias de cosas (ej. tipos de autos, pájaros, plantas, etc.).",Intereses,directa,0-3,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,AQ-10
-178,4,171,Me resulta fÃ¡cil deducir lo que alguien piensa o siente solo con mirarlo.,Social,inversa,0-3,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,AQ-10
-179,4,171,Me resulta difÃ­cil interpretar las intenciones de las personas.,Social,directa,0-3,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,AQ-10
+170,4,1,Con frecuencia noto sonidos diminutos que otros no perciben.,Sensorial,directa,0-3,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,AQ-10 item 1
+171,4,2,Por lo general me concentro mas en el panorama general que en los detalles menores.,Intereses,inversa,0-3,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,AQ-10 item 2
+172,4,3,Me resulta facil hacer mas de una cosa a la vez.,Intereses,inversa,0-3,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,AQ-10 item 3
+173,4,4,"Si hay una interrupcion, puedo retomar lo que estaba haciendo sin dificultad.",Intereses,inversa,0-3,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,AQ-10 item 4
+174,4,5,Me resulta sencillo leer entre lineas cuando alguien me habla.,Comunicacion,inversa,0-3,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,AQ-10 item 5
+175,4,6,Se cuando alguien que me escucha se esta aburriendo.,Comunicacion,inversa,0-3,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,AQ-10 item 6
+176,4,7,"Cuando leo una historia, me cuesta entender las intenciones de los personajes.",Social,directa,0-3,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,AQ-10 item 7
+177,4,8,"Me gusta coleccionar informacion sobre categorias de cosas (ej. tipos de autos, pajaros, plantas).",Intereses,directa,0-3,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,AQ-10 item 8
+178,4,9,Me resulta facil deducir lo que alguien piensa o siente solo con mirarlo.,Social,inversa,0-3,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,AQ-10 item 9
+179,4,10,Me resulta dificil interpretar las intenciones de las personas.,Social,directa,0-3,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,AQ-10 item 10
