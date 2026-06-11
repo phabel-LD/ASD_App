@@ -13,8 +13,8 @@ DOMINIOS = ["Social", "Comunicacion", "Sensorial", "Intereses"]
 
 NOMBRES_TEST = {
     1: "Test 1 – Cuestionario propio",
-    2: "Test 2 – Test online adaptativo",
     3: "RAADS-R",
+    4: "AQ-10",
 }
 
 ICONOS_DOMINIO = {
@@ -33,8 +33,8 @@ COLORES_DOMINIO = {
 
 COLORES_TEST = {
     1: "#4C72B0",
-    2: "#DD8452",
     3: "#55A868",
+    4: "#C44E52",
 }
 
 

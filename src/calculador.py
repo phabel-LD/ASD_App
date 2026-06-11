@@ -18,7 +18,10 @@ from src.utils import DOMINIOS
 RAADS_PUNTO_CORTE = 65
 RAADS_MAX         = 240   # 80 ítems × 3
 
-PESOS_DEFAULT: dict[int, float] = {1: 1.0, 3: 1.0}
+AQ10_PUNTO_CORTE  = 6
+AQ10_MAX          = 10    # 10 ítems × 1 (binario en scoring original)
+
+PESOS_DEFAULT: dict[int, float] = {1: 1.0, 3: 1.0, 4: 1.0}
 
 
 # ── Interpretación ─────────────────────────────────────────────────────────────
@@ -49,8 +52,13 @@ def interpretar_raads(puntuacion: int) -> tuple[str, str]:
         return f"Por encima del punto de corte ({RAADS_PUNTO_CORTE})", "#F44336"
     return f"Por debajo del punto de corte ({RAADS_PUNTO_CORTE})", "#4CAF50"
 
+def interpretar_aq10(puntuacion: int) -> tuple[str, str]:
+    if puntuacion >= AQ10_PUNTO_CORTE:
+        return f"Por encima del punto de corte ({AQ10_PUNTO_CORTE})", "#F44336"
+    return f"Por debajo del punto de corte ({AQ10_PUNTO_CORTE})", "#4CAF50"
 
-# ── Cálculo por test ───────────────────────────────────────────────────────────
+
+
 
 def _agrupar_por_dominio(
     norm: dict[int, int],
@@ -141,12 +149,13 @@ def calcular_puntuaciones(
     }
     """
     if pesos is None:
-        pesos = {1: 1.0, 3: 1.0}
+        pesos = PESOS_DEFAULT.copy()
 
     r1 = calcular_puntuaciones_test(1, respuestas, df_preguntas)
     r3 = calcular_puntuaciones_test(3, respuestas, df_preguntas)
+    r4 = calcular_puntuaciones_test(4, respuestas, df_preguntas)
 
-    resultados: dict[int, dict | None] = {1: r1, 3: r3}
+    resultados: dict[int, dict | None] = {1: r1, 3: r3, 4: r4}
 
     # ── Media ponderada global por dominio ────────────────────────────────────
     global_por_dominio: dict[str, dict] = {}
@@ -181,6 +190,18 @@ def calcular_puntuaciones(
     raads_bruta  = r3["raads_bruta"] or 0
     raads_interp, raads_color = interpretar_raads(raads_bruta)
 
+    # ── AQ-10 bruta ───────────────────────────────────────────────────────────
+    # Scoring binario: ítem cuenta 1 si valor normalizado >= 2 (en desacuerdo)
+    # para directos, o <= 1 (de acuerdo) para inversos — ya manejado por
+    # normalización: score bruto = suma de normalizados / 3 * 1 aprox.
+    # Usamos suma de normalizados escalada: bruta = round(sum / 3)
+    aq10_norm_vals = list(r4["raads_bruta"] or 0 if False else
+                          [v for v in
+                           [r4["por_dominio"][d]["valores"] for d in r4["por_dominio"]]
+                           for v in v])
+    aq10_bruta = sum(1 for v in aq10_norm_vals if v >= 2)
+    aq10_interp, aq10_color = interpretar_aq10(aq10_bruta)
+
     return {
         "por_test":             resultados,
         "global_por_dominio":   global_por_dominio,
@@ -189,5 +210,10 @@ def calcular_puntuaciones(
         "raads_sobre_corte":    raads_bruta >= RAADS_PUNTO_CORTE,
         "raads_interpretacion": raads_interp,
         "raads_color":          raads_color,
+        "aq10_bruta":           aq10_bruta,
+        "aq10_pct":             aq10_bruta / AQ10_MAX,
+        "aq10_sobre_corte":     aq10_bruta >= AQ10_PUNTO_CORTE,
+        "aq10_interpretacion":  aq10_interp,
+        "aq10_color":           aq10_color,
         "pesos_usados":         pesos,
     }

@@ -13,7 +13,7 @@ from __future__ import annotations
 import plotly.graph_objects as go
 
 from src.utils import DOMINIOS, NOMBRES_TEST, COLORES_TEST
-from src.calculador import RAADS_PUNTO_CORTE, RAADS_MAX, interpretar_media
+from src.calculador import RAADS_PUNTO_CORTE, RAADS_MAX, AQ10_PUNTO_CORTE, AQ10_MAX, interpretar_media
 
 _LABELS = {
     "Social":       "Social",
@@ -68,7 +68,7 @@ def crear_barras_por_test(resultados_por_test: dict) -> go.Figure:
     fig = go.Figure()
     x_labels = [_LABELS[d] for d in DOMINIOS]
 
-    for tid in [1, 3]:
+    for tid in [1, 3, 4]:
         res = resultados_por_test.get(tid)
         if res is None:
             continue
@@ -133,17 +133,44 @@ def crear_gauge_raads(raads_bruta: int) -> go.Figure:
     return fig
 
 
-# ── Tabla de detalle ───────────────────────────────────────────────────────────
+# ── Gauge AQ-10 ────────────────────────────────────────────────────────────────
+
+def crear_gauge_aq10(aq10_bruta: int) -> go.Figure:
+    """Gauge indicador para la puntuación bruta del AQ-10 (rango 0-10)."""
+    fig = go.Figure(go.Indicator(
+        mode="gauge+number+delta",
+        value=aq10_bruta,
+        delta={"reference": AQ10_PUNTO_CORTE, "valueformat": ".0f",
+               "increasing": {"color": "#F44336"},
+               "decreasing": {"color": "#4CAF50"}},
+        gauge={
+            "axis": {"range": [0, AQ10_MAX], "tickwidth": 1, "tickfont_size": 10},
+            "bar":  {"color": "#C44E52"},
+            "steps": [
+                {"range": [0,                    AQ10_PUNTO_CORTE], "color": "#E8F5E9"},
+                {"range": [AQ10_PUNTO_CORTE,     AQ10_MAX],         "color": "#FFEBEE"},
+            ],
+            "threshold": {
+                "line":      {"color": "#F44336", "width": 3},
+                "thickness": 0.80,
+                "value":     AQ10_PUNTO_CORTE,
+            },
+        },
+        title={"text": f"AQ-10 &nbsp; (corte: {AQ10_PUNTO_CORTE})", "font": {"size": 14}},
+        number={"suffix": f" / {AQ10_MAX}", "font": {"size": 26}},
+    ))
+    fig.update_layout(height=270, margin=dict(t=65, b=20, l=30, r=30))
+    return fig
 
 def crear_tabla_detalles(resultados_por_test: dict) -> list[dict]:
     """
     Lista de dicts para st.dataframe.
-    Columnas: Dominio | Test 1 | RAADS-R
+    Columnas: Dominio | Test 1 | RAADS-R | AQ-10
     """
     filas = []
     for dom in DOMINIOS:
         fila = {"Dominio": _LABELS[dom]}
-        for tid, col in [(1, "Test 1"), (3, "RAADS-R")]:
+        for tid, col in [(1, "Test 1"), (3, "RAADS-R"), (4, "AQ-10")]:
             res = resultados_por_test.get(tid)
             if res is None:
                 fila[col] = "—"
