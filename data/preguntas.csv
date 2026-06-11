@@ -168,3 +168,13 @@ id,test_id,orden,texto,dominio,direccion,escala_origen,opcion_a,opcion_b,opcion_
 167,3,167,A menudo me dicen que hago preguntas embarazosas.,Comunicacion,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
 168,3,168,Suelo seÃ±alar los errores de los demÃ¡s.,Comunicacion,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
 169,3,169,"Un mismo sonido a veces me parece muy fuerte o muy suave, aunque sÃ© que no ha cambiado.",Sensorial,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
+170,4,170,Con frecuencia noto sonidos pequeños que otros no perciben.,Sensorial,directa,0-3,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,AQ-10
+171,4,171,Por lo general me concentro más en el panorama general que en los pequeños detalles.,Intereses,inversa,0-3,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,AQ-10
+172,4,171,Me resulta fácil hacer más de una cosa a la vez.,Intereses,inversa,0-3,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,AQ-10
+173,4,171,"Si hay una interrupción, puedo retomar fácilmente lo que estaba haciendo.",Intereses,inversa,0-3,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,AQ-10
+174,4,171,Me resulta fácil leer entre líneas cuando alguien me habla.,Comunicacion,inversa,0-3,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,AQ-10
+175,4,171,Sé cuándo alguien que me escucha se está aburriendo.,Comunicacion,inversa,0-3,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,AQ-10
+176,4,171,"Cuando leo una historia, me cuesta entender las intenciones de los personajes.",Social,directa,0-3,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,AQ-10
+177,4,171,"Me gusta coleccionar información sobre categorías de cosas (ej. tipos de autos, pájaros, plantas, etc.).",Intereses,directa,0-3,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,AQ-10
+178,4,171,Me resulta fácil deducir lo que alguien piensa o siente solo con mirarlo.,Social,inversa,0-3,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,AQ-10
+179,4,171,Me resulta difícil interpretar las intenciones de las personas.,Social,directa,0-3,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,AQ-10
