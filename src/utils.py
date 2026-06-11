@@ -42,7 +42,7 @@ COLORES_TEST = {
 @st.cache_data(show_spinner=False)
 def cargar_preguntas() -> pd.DataFrame:
     """Lee preguntas.csv con cache de Streamlit. Seguro para llamar múltiples veces."""
-    df = pd.read_csv(DATA_PATH, dtype={"id": int, "test_id": int, "orden": int}, encoding="utf-8-sig")
+    df = pd.read_csv(DATA_PATH, dtype={"id": int, "test_id": int, "orden": int}, encoding="utf-8")
     df["notas"]    = df["notas"].fillna("")
     df["opcion_e"] = df["opcion_e"].fillna("")
     df["dominio"]  = df["dominio"].fillna("Sin_clasificar")

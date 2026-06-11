@@ -1,173 +1,173 @@
-﻿id,test_id,orden,texto,dominio,direccion,escala_origen,opcion_a,opcion_b,opcion_c,opcion_d,opcion_e,notas
+id,test_id,orden,texto,dominio,direccion,escala_origen,opcion_a,opcion_b,opcion_c,opcion_d,opcion_e,notas
 1,1,1,Prefiero realizar actividades por mi cuenta en lugar de con otros.,Social,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
-2,1,2,Me siento incÃƒÂ³modo/a en situaciones sociales.,Social,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
-3,1,3,A menudo no sÃƒÂ© cÃƒÂ³mo actuar en situaciones sociales.,Social,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
+2,1,2,Me siento incómodo/a en situaciones sociales.,Social,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
+3,1,3,A menudo no sé cómo actuar en situaciones sociales.,Social,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
 4,1,4,"Me siento nervioso/a en situaciones sociales, incluso con personas conocidas.",Social,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
-5,1,5,A menudo me siento agotado/a despuÃƒÂ©s de interactuar socialmente.,Social,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
-6,1,6,Conocer gente nueva me hace preocuparme por la impresiÃƒÂ³n que he causado.,Social,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
-7,1,7,Se siente mÃƒÂ¡s cÃƒÂ³modo estando solo que en grupo.,Social,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
-8,1,8,Conecta fÃƒÂ¡cilmente con gente nueva.,Social,inversa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
-9,1,9,Me resulta fÃƒÂ¡cil entablar conversaciÃƒÂ³n con un desconocido.,Social,inversa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
+5,1,5,A menudo me siento agotado/a después de interactuar socialmente.,Social,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
+6,1,6,Conocer gente nueva me hace preocuparme por la impresión que he causado.,Social,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
+7,1,7,Se siente más cómodo estando solo que en grupo.,Social,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
+8,1,8,Conecta fácilmente con gente nueva.,Social,inversa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
+9,1,9,Me resulta fácil entablar conversación con un desconocido.,Social,inversa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
 10,1,10,Las interacciones sociales me estimulan y busco conocer gente nueva.,Social,inversa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
-11,1,11,Me resulta difÃƒÂ­cil entender las expresiones faciales de otras personas.,Comunicacion,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
+11,1,11,Me resulta difícil entender las expresiones faciales de otras personas.,Comunicacion,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
 12,1,12,Me cuesta entender las bromas o el sarcasmo.,Comunicacion,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
 13,1,13,Me cuesta entender las intenciones o emociones de otras personas.,Comunicacion,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
 14,1,14,Tengo dificultades para entender el lenguaje corporal de otros.,Comunicacion,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
-15,1,15,Me resulta difÃƒÂ­cil interpretar las normas sociales no dichas.,Comunicacion,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
-16,1,16,Me cuesta entender cÃƒÂ³mo se sienten los demÃƒÂ¡s mientras hablamos.,Comunicacion,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
+15,1,15,Me resulta difícil interpretar las normas sociales no dichas.,Comunicacion,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
+16,1,16,Me cuesta entender cómo se sienten los demás mientras hablamos.,Comunicacion,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
 17,1,17,Me cuesta entender frases hechas como 'estar en la luna'.,Comunicacion,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
 18,1,18,Tomo las cosas demasiado literalmente.,Comunicacion,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
-19,1,19,Encuentro difÃƒÂ­cil iniciar o mantener una conversaciÃƒÂ³n.,Comunicacion,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
-20,1,20,"Al hablar por telÃƒÂ©fono, no sÃƒÂ© cuÃƒÂ¡ndo me toca hablar.",Comunicacion,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
+19,1,19,Encuentro difícil iniciar o mantener una conversación.,Comunicacion,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
+20,1,20,"Al hablar por teléfono, no sé cuándo me toca hablar.",Comunicacion,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
 21,1,21,La gente se queja de que hablo sin parar del mismo tema.,Comunicacion,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
 22,1,22,Me siento abrumado/a en entornos con mucho ruido o luz.,Sensorial,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
-23,1,23,Suelo notar y me molestan sonidos pequeÃƒÂ±os que otros ignoran.,Sensorial,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
-24,1,24,Los ruidos agudos pueden ser dolorosos para mis oÃƒÂ­dos.,Sensorial,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
+23,1,23,Suelo notar y me molestan sonidos pequeños que otros ignoran.,Sensorial,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
+24,1,24,Los ruidos agudos pueden ser dolorosos para mis oídos.,Sensorial,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
 25,1,25,"Si hay muchos olores, ruidos o luces, me siento ansioso.",Sensorial,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
 26,1,26,Algunas texturas me resultan muy desagradables al tacto.,Sensorial,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
-27,1,27,Soy muy sensible a cÃƒÂ³mo se siente mi ropa al tocarla.,Sensorial,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
-28,1,28,"Siempre noto la textura de la comida, mÃƒÂ¡s que su sabor.",Sensorial,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
-29,1,29,A veces no siento dolor cuando deberÃƒÂ­a (ej. quemaduras).,Sensorial,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
+27,1,27,Soy muy sensible a cómo se siente mi ropa al tocarla.,Sensorial,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
+28,1,28,"Siempre noto la textura de la comida, más que su sabor.",Sensorial,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
+29,1,29,A veces no siento dolor cuando debería (ej. quemaduras).,Sensorial,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
 30,1,30,"Hago movimientos repetitivos con las manos (aleteo, etc.).",Sensorial,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
 31,1,31,Me calma mecerme o girar cuando estoy estresado.,Sensorial,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
-32,1,32,Prefiero seguir rutinas y me siento incÃƒÂ³modo si cambian.,Intereses,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
-33,1,33,"Planifico mis actividades con antelaciÃƒÂ³n, evito la espontaneidad.",Intereses,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
+32,1,32,Prefiero seguir rutinas y me siento incómodo si cambian.,Intereses,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
+33,1,33,"Planifico mis actividades con antelación, evito la espontaneidad.",Intereses,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
 34,1,34,Me altero mucho cuando cambian mi forma de hacer las cosas.,Intereses,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
-35,1,35,Me gusta que las cosas sean iguales dÃƒÂ­a tras dÃƒÂ­a.,Intereses,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
+35,1,35,Me gusta que las cosas sean iguales día tras día.,Intereses,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
 36,1,36,"Necesito seguir rutas conocidas, si no, me confundo.",Intereses,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
-37,1,37,Me siento mÃƒÂ¡s cÃƒÂ³modo con una rutina diaria estructurada.,Intereses,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
-38,1,38,Organizo mi dÃƒÂ­a con listas u horarios.,Intereses,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
+37,1,37,Me siento más cómodo con una rutina diaria estructurada.,Intereses,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
+38,1,38,Organizo mi día con listas u horarios.,Intereses,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
 39,1,39,Un plan claro me hace sentir seguro.,Intereses,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
 40,1,40,Me fijo en detalles que otros pasan por alto.,Intereses,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
-41,1,41,Me centro en los detalles mÃƒÂ¡s que en la idea general.,Intereses,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
-42,1,42,Me obsesiono con pequeÃƒÂ±os fragmentos de informaciÃƒÂ³n.,Intereses,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
-43,1,43,"Soy muy observador, noto pequeÃƒÂ±os cambios en el entorno.",Intereses,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
-44,1,44,Prefiero dedicarme a temas especÃƒÂ­ficos y profundizar en ellos.,Intereses,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
+41,1,41,Me centro en los detalles más que en la idea general.,Intereses,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
+42,1,42,Me obsesiono con pequeños fragmentos de información.,Intereses,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
+43,1,43,"Soy muy observador, noto pequeños cambios en el entorno.",Intereses,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
+44,1,44,Prefiero dedicarme a temas específicos y profundizar en ellos.,Intereses,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
 45,1,45,"Mis intereses son selectivos, pocas cosas me intrigan.",Intereses,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
 46,1,46,Puedo pasar horas profundizando en temas que me interesan.,Intereses,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
-47,1,47,"Hago listas de cosas que me interesan, sin utilidad prÃƒÂ¡ctica.",Intereses,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
+47,1,47,"Hago listas de cosas que me interesan, sin utilidad práctica.",Intereses,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
 48,1,48,Me involucro tanto en algo que olvido otras actividades.,Intereses,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
-49,1,49,"Los nÃƒÂºmeros me fascinan, aunque no sea matemÃƒÂ¡tico.",Intereses,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
-50,1,50,Puedo detectar patrones fÃƒÂ¡cilmente.,Intereses,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
-51,1,51,Disfruto participar en juegos o actividades de imaginaciÃƒÂ³n y juego simbÃƒÂ³lico.,Social,inversa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Juego imaginativo
-52,1,52,"Cuando leo una historia, me cuesta entender quÃƒÂ© estÃƒÂ¡n pensando o quÃƒÂ© intentan hacer los personajes.",Social,directa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,TeorÃƒÂ­a de la mente
-53,1,53,"Con solo mirar a una persona, puedo intuir cÃƒÂ³mo se siente o quÃƒÂ© estÃƒÂ¡ pensando.",Social,inversa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Lectura emocional
-54,1,54,Me resulta difÃƒÂ­cil imaginar cÃƒÂ³mo serÃƒÂ­a estar en el lugar de otra persona.,Social,directa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,EmpatÃƒÂ­a cognitiva
-55,1,55,"Por lo general, entiendo cuÃƒÂ¡ndo una respuesta o comentario puede resultar descortÃƒÂ©s para los demÃƒÂ¡s.",Comunicacion,inversa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,PragmÃƒÂ¡tica social
-56,1,56,"En situaciones sociales, aunque al principio me sienta incÃƒÂ³modo/a, logro adaptarme con el tiempo.",Social,inversa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,AdaptaciÃƒÂ³n social
-57,1,57,Mi cÃƒÂ­rculo de amistades cercanas es reducido.,Social,directa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Red social
-58,1,58,Prefiero hacer actividades en compaÃƒÂ±ÃƒÂ­a de otras personas que hacerlas solo/a.,Social,inversa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Preferencia social
-59,1,59,A veces no entiendo por quÃƒÂ© mis amigos o familiares se molestan o aburren con algo que hice.,Social,directa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,ComprensiÃƒÂ³n social
+49,1,49,"Los números me fascinan, aunque no sea matemático.",Intereses,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
+50,1,50,Puedo detectar patrones fácilmente.,Intereses,directa,01-abr,Muy en desacuerdo,En desacuerdo,De acuerdo,Muy de acuerdo,,
+51,1,51,Disfruto participar en juegos o actividades de imaginación y juego simbólico.,Social,inversa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Juego imaginativo
+52,1,52,"Cuando leo una historia, me cuesta entender qué están pensando o qué intentan hacer los personajes.",Social,directa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Teoría de la mente
+53,1,53,"Con solo mirar a una persona, puedo intuir cómo se siente o qué está pensando.",Social,inversa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Lectura emocional
+54,1,54,Me resulta difícil imaginar cómo sería estar en el lugar de otra persona.,Social,directa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Empatía cognitiva
+55,1,55,"Por lo general, entiendo cuándo una respuesta o comentario puede resultar descortés para los demás.",Comunicacion,inversa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Pragmática social
+56,1,56,"En situaciones sociales, aunque al principio me sienta incómodo/a, logro adaptarme con el tiempo.",Social,inversa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Adaptación social
+57,1,57,Mi círculo de amistades cercanas es reducido.,Social,directa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Red social
+58,1,58,Prefiero hacer actividades en compañía de otras personas que hacerlas solo/a.,Social,inversa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Preferencia social
+59,1,59,A veces no entiendo por qué mis amigos o familiares se molestan o aburren con algo que hice.,Social,directa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Comprensión social
 60,1,60,Me siento fuera de lugar en reuniones grandes o eventos sociales.,Social,directa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Ansiedad social
-61,1,61,Disfruto las conversaciones informales con amigos y familiares.,Social,inversa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,ComunicaciÃƒÂ³n informal
+61,1,61,Disfruto las conversaciones informales con amigos y familiares.,Social,inversa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Comunicación informal
 62,1,62,Los eventos sociales como bodas o fiestas me generan incomodidad o los evito.,Social,directa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Eventos sociales
-63,1,63,Comprendo bien lo que mis amigos y familiares esperan de mÃƒÂ­ en distintas situaciones.,Social,inversa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,ComprensiÃƒÂ³n de expectativas
+63,1,63,Comprendo bien lo que mis amigos y familiares esperan de mí en distintas situaciones.,Social,inversa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Comprensión de expectativas
 64,1,64,Disfruto conocer personas de distintos contextos culturales o sociales.,Social,inversa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Apertura social
-65,1,65,"Cuando me aburro, prefiero actividades solitarias como explorar temas de mi interÃƒÂ©s.",Intereses,directa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Actividades de ocio
-66,1,66,Me gusta ser el centro de atenciÃƒÂ³n en un grupo.,Social,inversa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,BÃƒÂºsqueda de atenciÃƒÂ³n
-67,1,67,"Ante situaciones inesperadas o nuevas, me cuesta mantener la calma.",Sensorial,directa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,RegulaciÃƒÂ³n ante lo inesperado
-68,1,68,"En reuniones sociales, puedo seguir varias conversaciones simultÃƒÂ¡neas sin dificultad.",Comunicacion,inversa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Multitarea conversacional
-69,1,69,Iniciar una conversaciÃƒÂ³n con alguien que no conozco me resulta natural.,Comunicacion,inversa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Inicio de conversaciones
-70,1,70,Las conversaciones triviales o el chismorreo me parecen una pÃƒÂ©rdida de tiempo.,Comunicacion,directa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,ComunicaciÃƒÂ³n informal
-71,1,71,Tiendo a hablar sin dar oportunidad a que los demÃƒÂ¡s expresen su opiniÃƒÂ³n.,Comunicacion,directa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,MonÃƒÂ³logo conversacional
-72,1,72,Puedo captar lo que alguien realmente quiere decir aunque no lo exprese directamente.,Comunicacion,inversa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Lenguaje implÃƒÂ­cito
-73,1,73,Soy capaz de manejar situaciones complicadas con diplomacia y evitar conflictos.,Comunicacion,inversa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,ResoluciÃƒÂ³n de conflictos
-74,1,74,"Me siento mÃƒÂ¡s cÃƒÂ³modo/a haciendo las cosas siempre de la misma manera, incluso si existe una alternativa mejor.",Intereses,directa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Rigidez comportamental
-75,1,75,Tengo buena capacidad para visualizar mentalmente situaciones o escenas que imagino.,Intereses,inversa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,ImaginaciÃƒÂ³n visual
-76,1,76,"Cuando me concentro en algo, pierdo de vista otras tareas que deberÃƒÂ­a atender.",Intereses,directa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Hiperfoco
-77,1,77,Me cuesta trabajo imaginar cÃƒÂ³mo lucen fÃƒÂ­sicamente los personajes de los libros que leo.,Intereses,directa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,VisualizaciÃƒÂ³n imaginativa
-78,1,78,Me siento mÃƒÂ¡s apegado/a a las personas que a los objetos o cosas materiales.,Social,inversa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Apego interpersonal
-79,1,79,Los cambios en mi rutina diaria me generan malestar o irritaciÃƒÂ³n.,Intereses,directa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Adherencia a rutinas
-80,1,80,"Me disgusto cuando no puedo llevar a cabo algo que quiero hacer, aunque haya razones vÃƒÂ¡lidas para ello.",Intereses,directa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Flexibilidad ante frustraciÃƒÂ³n
-81,1,81,Pasar de una actividad a otra de forma repentina me genera incomodidad o estrÃƒÂ©s.,Sensorial,directa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Transiciones entre actividades
+65,1,65,"Cuando me aburro, prefiero actividades solitarias como explorar temas de mi interés.",Intereses,directa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Actividades de ocio
+66,1,66,Me gusta ser el centro de atención en un grupo.,Social,inversa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Búsqueda de atención
+67,1,67,"Ante situaciones inesperadas o nuevas, me cuesta mantener la calma.",Sensorial,directa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Regulación ante lo inesperado
+68,1,68,"En reuniones sociales, puedo seguir varias conversaciones simultáneas sin dificultad.",Comunicacion,inversa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Multitarea conversacional
+69,1,69,Iniciar una conversación con alguien que no conozco me resulta natural.,Comunicacion,inversa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Inicio de conversaciones
+70,1,70,Las conversaciones triviales o el chismorreo me parecen una pérdida de tiempo.,Comunicacion,directa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Comunicación informal
+71,1,71,Tiendo a hablar sin dar oportunidad a que los demás expresen su opinión.,Comunicacion,directa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Monólogo conversacional
+72,1,72,Puedo captar lo que alguien realmente quiere decir aunque no lo exprese directamente.,Comunicacion,inversa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Lenguaje implícito
+73,1,73,Soy capaz de manejar situaciones complicadas con diplomacia y evitar conflictos.,Comunicacion,inversa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Resolución de conflictos
+74,1,74,"Me siento más cómodo/a haciendo las cosas siempre de la misma manera, incluso si existe una alternativa mejor.",Intereses,directa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Rigidez comportamental
+75,1,75,Tengo buena capacidad para visualizar mentalmente situaciones o escenas que imagino.,Intereses,inversa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Imaginación visual
+76,1,76,"Cuando me concentro en algo, pierdo de vista otras tareas que debería atender.",Intereses,directa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Hiperfoco
+77,1,77,Me cuesta trabajo imaginar cómo lucen físicamente los personajes de los libros que leo.,Intereses,directa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Visualización imaginativa
+78,1,78,Me siento más apegado/a a las personas que a los objetos o cosas materiales.,Social,inversa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Apego interpersonal
+79,1,79,Los cambios en mi rutina diaria me generan malestar o irritación.,Intereses,directa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Adherencia a rutinas
+80,1,80,"Me disgusto cuando no puedo llevar a cabo algo que quiero hacer, aunque haya razones válidas para ello.",Intereses,directa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Flexibilidad ante frustración
+81,1,81,Pasar de una actividad a otra de forma repentina me genera incomodidad o estrés.,Sensorial,directa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Transiciones entre actividades
 82,1,82,Me pongo ansioso/a o nervioso/a frente a situaciones nuevas o inesperadas.,Sensorial,directa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Ansiedad ante lo imprevisto
 83,1,83,Puedo realizar varias tareas a la vez sin mayor dificultad.,Intereses,inversa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Multitarea
 84,1,84,"En mis momentos de ocio, prefiero los espacios tranquilos y con pocas personas.",Social,directa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Preferencia de entorno
 85,1,85,"Para pasar el tiempo libre, prefiero actividades estructuradas como leer o investigar un tema.",Intereses,directa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Actividades de ocio estructuradas
-86,1,86,Prefiero las interacciones en lÃƒÂ­nea o a distancia sobre el contacto social en persona.,Social,directa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Modalidad de interacciÃƒÂ³n social
-87,1,87,Mi estado de ÃƒÂ¡nimo habitual es estable y equilibrado.,Sensorial,inversa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,RegulaciÃƒÂ³n emocional general
-88,1,88,Una sola palabra que me describe bien serÃƒÂ­a: enfocado/a o detallista.,Intereses,directa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,AutopercepciÃƒÂ³n
-89,1,89,Me resulta fÃƒÂ¡cil cambiar de perspectiva y ver las cosas desde el punto de vista de otra persona.,Social,inversa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Flexibilidad cognitiva social
-90,3,90,Soy una persona comprensiva / empÃƒÂ¡tica.,Social,inversa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
-91,3,91,A menudo uso palabras y frases de pelÃƒÂ­culas y televisiÃƒÂ³n en las conversaciones.,Comunicacion,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
+86,1,86,Prefiero las interacciones en línea o a distancia sobre el contacto social en persona.,Social,directa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Modalidad de interacción social
+87,1,87,Mi estado de ánimo habitual es estable y equilibrado.,Sensorial,inversa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Regulación emocional general
+88,1,88,Una sola palabra que me describe bien sería: enfocado/a o detallista.,Intereses,directa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Autopercepción
+89,1,89,Me resulta fácil cambiar de perspectiva y ver las cosas desde el punto de vista de otra persona.,Social,inversa,01-abr,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,Flexibilidad cognitiva social
+90,3,90,Soy una persona comprensiva / empática.,Social,inversa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
+91,3,91,A menudo uso palabras y frases de películas y televisión en las conversaciones.,Comunicacion,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
 92,3,92,A menudo me sorprende que otros me digan que he sido grosero/a.,Comunicacion,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
 93,3,93,"A veces hablo demasiado alto o demasiado bajo, y no me doy cuenta.",Comunicacion,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
-94,3,94,A menudo no sÃƒÂ© cÃƒÂ³mo actuar en situaciones sociales.,Social,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
+94,3,94,A menudo no sé cómo actuar en situaciones sociales.,Social,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
 95,3,95,Puedo 'ponerme en los zapatos de otros' / entender su perspectiva.,Social,inversa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
 96,3,96,"Me cuesta entender el significado de algunas frases hechas, como 'estar en la luna' o 'costar un ojo de la cara'.",Comunicacion,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
 97,3,97,Solo me gusta hablar con personas que comparten mis intereses especiales.,Intereses,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
-98,3,98,Me centro en los detalles mÃƒÂ¡s que en la idea general.,Intereses,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
-99,3,99,Siempre noto cÃƒÂ³mo se siente la comida en mi boca. Eso es mÃƒÂ¡s importante para mÃƒÂ­ que su sabor.,Sensorial,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
-100,3,100,ExtraÃƒÂ±o a mis mejores amigos o familiares cuando estamos separados durante mucho tiempo.,Social,inversa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
-101,3,101,"A veces ofendo a otros diciendo lo que pienso, aunque no sea mi intenciÃƒÂ³n.",Comunicacion,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
+98,3,98,Me centro en los detalles más que en la idea general.,Intereses,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
+99,3,99,Siempre noto cómo se siente la comida en mi boca. Eso es más importante para mí que su sabor.,Sensorial,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
+100,3,100,Extraño a mis mejores amigos o familiares cuando estamos separados durante mucho tiempo.,Social,inversa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
+101,3,101,"A veces ofendo a otros diciendo lo que pienso, aunque no sea mi intención.",Comunicacion,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
 102,3,102,Solo me gusta pensar y hablar sobre unas pocas cosas que me interesan.,Intereses,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
 103,3,103,Prefiero salir a comer a un restaurante solo/a que con alguien que conozco.,Social,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
-104,3,104,No puedo imaginar cÃƒÂ³mo serÃƒÂ­a ser otra persona.,Social,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
-105,3,105,Me han dicho que soy torpe o que tengo mala coordinaciÃƒÂ³n.,Sensorial,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
+104,3,104,No puedo imaginar cómo sería ser otra persona.,Social,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
+105,3,105,Me han dicho que soy torpe o que tengo mala coordinación.,Sensorial,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
 106,3,106,Otros me consideran raro/a o diferente.,Social,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
-107,3,107,Entiendo cuÃƒÂ¡ndo los amigos necesitan ser consolados.,Social,inversa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
-108,3,108,Soy muy sensible a la sensaciÃƒÂ³n de mi ropa al tocarla. CÃƒÂ³mo se siente es mÃƒÂ¡s importante para mÃƒÂ­ que cÃƒÂ³mo se ve.,Sensorial,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
-109,3,109,Me gusta imitar la forma de hablar y actuar de ciertas personas. Me ayuda a parecer mÃƒÂ¡s normal.,Comunicacion,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
-110,3,110,Puede ser muy intimidante para mÃƒÂ­ hablar con mÃƒÂ¡s de una persona a la vez.,Social,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
-111,3,111,Tengo que 'actuar con normalidad' para complacer a los demÃƒÂ¡s y hacer que les guste.,Social,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
-112,3,112,Conocer gente nueva suele ser fÃƒÂ¡cil para mÃƒÂ­.,Social,inversa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
+107,3,107,Entiendo cuándo los amigos necesitan ser consolados.,Social,inversa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
+108,3,108,Soy muy sensible a la sensación de mi ropa al tocarla. Cómo se siente es más importante para mí que cómo se ve.,Sensorial,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
+109,3,109,Me gusta imitar la forma de hablar y actuar de ciertas personas. Me ayuda a parecer más normal.,Comunicacion,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
+110,3,110,Puede ser muy intimidante para mí hablar con más de una persona a la vez.,Social,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
+111,3,111,Tengo que 'actuar con normalidad' para complacer a los demás y hacer que les guste.,Social,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
+112,3,112,Conocer gente nueva suele ser fácil para mí.,Social,inversa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
 113,3,113,Me confundo mucho cuando alguien me interrumpe mientras hablo de algo que me interesa mucho.,Comunicacion,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
-114,3,114,Me cuesta entender cÃƒÂ³mo se sienten los demÃƒÂ¡s mientras hablamos.,Comunicacion,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
+114,3,114,Me cuesta entender cómo se sienten los demás mientras hablamos.,Comunicacion,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
 115,3,115,"Me gusta tener conversaciones con varias personas, por ejemplo, alrededor de una mesa, en la escuela o en el trabajo.",Social,inversa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
 116,3,116,"Tomo las cosas demasiado literalmente, por lo que a menudo pierdo el sentido de lo que la gente intenta decir.",Comunicacion,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
-117,3,117,Me resulta muy difÃƒÂ­cil entender cuÃƒÂ¡ndo alguien estÃƒÂ¡ avergonzado o siente celos.,Comunicacion,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
+117,3,117,Me resulta muy difícil entender cuándo alguien está avergonzado o siente celos.,Comunicacion,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
 118,3,118,Algunas texturas comunes que no molestan a otros me resultan muy desagradables cuando tocan mi piel.,Sensorial,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
-119,3,119,Me altero muchÃƒÂ­simo cuando cambian la forma en que me gusta hacer las cosas.,Intereses,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
-120,3,120,Nunca he querido ni necesitado tener lo que otros llaman una 'relaciÃƒÂ³n ÃƒÂ­ntima' (de pareja).,Social,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
-121,3,121,Me cuesta empezar y terminar una conversaciÃƒÂ³n. Necesito seguir hasta que termino.,Comunicacion,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
+119,3,119,Me altero muchísimo cuando cambian la forma en que me gusta hacer las cosas.,Intereses,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
+120,3,120,Nunca he querido ni necesitado tener lo que otros llaman una 'relación íntima' (de pareja).,Social,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
+121,3,121,Me cuesta empezar y terminar una conversación. Necesito seguir hasta que termino.,Comunicacion,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
 122,3,122,Hablo con un ritmo normal.,Comunicacion,inversa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
 123,3,123,"Un mismo sonido, color o textura puede cambiar repentinamente de muy sensible a muy sordo.",Sensorial,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
-124,3,124,La frase 'me tienes debajo de la piel' (en el sentido de 'me tienen conquistado/a') me hace sentir muy incÃƒÂ³modo/a.,Comunicacion,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
-125,3,125,A veces el sonido de una palabra o un ruido agudo pueden ser dolorosos para mis oÃƒÂ­dos.,Sensorial,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
+124,3,124,La frase 'me tienes debajo de la piel' (en el sentido de 'me tienen conquistado/a') me hace sentir muy incómodo/a.,Comunicacion,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
+125,3,125,A veces el sonido de una palabra o un ruido agudo pueden ser dolorosos para mis oídos.,Sensorial,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
 126,3,126,Soy una persona comprensiva.,Social,inversa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
-127,3,127,No me conecto con los personajes de las pelÃƒÂ­culas y no puedo sentir lo que ellos sienten.,Comunicacion,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
-128,3,128,No puedo distinguir cuando alguien estÃƒÂ¡ coqueteando conmigo.,Comunicacion,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
+127,3,127,No me conecto con los personajes de las películas y no puedo sentir lo que ellos sienten.,Comunicacion,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
+128,3,128,No puedo distinguir cuando alguien está coqueteando conmigo.,Comunicacion,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
 129,3,129,Puedo ver en mi mente con todo detalle las cosas que me interesan.,Intereses,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
-130,3,130,"Hago listas de cosas que me interesan, incluso cuando no tienen utilidad prÃƒÂ¡ctica (ej. estadÃƒÂ­sticas deportivas, horarios de trenes, fechas histÃƒÂ³ricas).",Intereses,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
+130,3,130,"Hago listas de cosas que me interesan, incluso cuando no tienen utilidad práctica (ej. estadísticas deportivas, horarios de trenes, fechas históricas).",Intereses,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
 131,3,131,"Cuando me siento abrumado por mis sentidos, tengo que aislarme para desconectarlos.",Sensorial,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
 132,3,132,Me gusta hablar de las cosas con mis amigos.,Social,inversa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
-133,3,133,No puedo saber si alguien estÃƒÂ¡ interesado o aburrido con lo que digo.,Comunicacion,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
-134,3,134,"Puede ser muy difÃƒÂ­cil leer el rostro, las manos y los movimientos del cuerpo de alguien cuando habla.",Comunicacion,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
+133,3,133,No puedo saber si alguien está interesado o aburrido con lo que digo.,Comunicacion,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
+134,3,134,"Puede ser muy difícil leer el rostro, las manos y los movimientos del cuerpo de alguien cuando habla.",Comunicacion,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
 135,3,135,Una misma cosa (como la ropa o las temperaturas) puede sentirse muy diferente en diferentes momentos.,Sensorial,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
-136,3,136,Me siento muy cÃƒÂ³modo con las citas o en situaciones sociales con otros.,Social,inversa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
-137,3,137,Intento ser lo mÃƒÂ¡s ÃƒÂºtil posible cuando otras personas me cuentan sus problemas personales.,Social,inversa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
-138,3,138,"Me han dicho que tengo una voz inusual (por ejemplo, plana, monÃƒÂ³tona, infantil o aguda).",Comunicacion,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
-139,3,139,A veces un pensamiento o tema se queda atascado en mi mente y tengo que hablar de ÃƒÂ©l aunque a nadie le interese.,Comunicacion,directa,0-3,Nunca,A veces,Bastantes veces,Casi sempre,,
+136,3,136,Me siento muy cómodo con las citas o en situaciones sociales con otros.,Social,inversa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
+137,3,137,Intento ser lo más útil posible cuando otras personas me cuentan sus problemas personales.,Social,inversa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
+138,3,138,"Me han dicho que tengo una voz inusual (por ejemplo, plana, monótona, infantil o aguda).",Comunicacion,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
+139,3,139,A veces un pensamiento o tema se queda atascado en mi mente y tengo que hablar de él aunque a nadie le interese.,Comunicacion,directa,0-3,Nunca,A veces,Bastantes veces,Casi sempre,,
 140,3,140,"Hago ciertas cosas con las manos una y otra vez (como aletear, girar palos o cuerdas, agitar cosas cerca de mis ojos).",Sensorial,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
-141,3,141,Nunca me han interesado la mayorÃƒÂ­a de las cosas que la gente que conozco encuentra interesantes.,Intereses,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
+141,3,141,Nunca me han interesado la mayoría de las cosas que la gente que conozco encuentra interesantes.,Intereses,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
 142,3,142,Soy considerado/a una persona compasiva.,Social,inversa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
-143,3,143,Me llevo bien con los demÃƒÂ¡s siguiendo una serie de reglas especÃƒÂ­ficas que me ayudan a parecer normal.,Social,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
-144,3,144,Me resulta muy difÃƒÂ­cil trabajar y funcionar en grupos.,Social,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
+143,3,143,Me llevo bien con los demás siguiendo una serie de reglas específicas que me ayudan a parecer normal.,Social,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
+144,3,144,Me resulta muy difícil trabajar y funcionar en grupos.,Social,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
 145,3,145,"Cuando hablo con alguien, me cuesta cambiar de tema. Si la otra persona lo hace, me altero y confundo mucho.",Intereses,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
-146,3,146,A veces tengo que taparme los oÃƒÂ­dos para bloquear ruidos dolorosos (como aspiradoras o personas que hablan demasiado o muy alto).,Sensorial,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
-147,3,147,Puedo charlar y hacer conversaciÃƒÂ³n trivial con la gente.,Comunicacion,inversa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
-148,3,148,"A veces, cosas que deberÃƒÂ­an ser dolorosas no lo son (por ejemplo, cuando me lastimo o me quemo en la estufa).",Sensorial,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
-149,3,149,"Al hablar con alguien, me cuesta saber cuÃƒÂ¡ndo me toca hablar a mÃƒÂ­ o escuchar.",Comunicacion,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
+146,3,146,A veces tengo que taparme los oídos para bloquear ruidos dolorosos (como aspiradoras o personas que hablan demasiado o muy alto).,Sensorial,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
+147,3,147,Puedo charlar y hacer conversación trivial con la gente.,Comunicacion,inversa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
+148,3,148,"A veces, cosas que deberían ser dolorosas no lo son (por ejemplo, cuando me lastimo o me quemo en la estufa).",Sensorial,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
+149,3,149,"Al hablar con alguien, me cuesta saber cuándo me toca hablar a mí o escuchar.",Comunicacion,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
 150,3,150,Soy considerado/a un/a solitario/a por quienes mejor me conocen.,Social,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
 151,3,151,Normalmente hablo en un tono normal.,Comunicacion,inversa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
-152,3,152,"Me gusta que las cosas sean exactamente iguales dÃƒÂ­a tras dÃƒÂ­a, e incluso pequeÃƒÂ±os cambios en mi rutina me alteran.",Intereses,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
-153,3,153,CÃƒÂ³mo hacer amigos y socializar es un misterio para mÃƒÂ­.,Social,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
-154,3,154,Me calma girar sobre mÃƒÂ­ mismo o mecerme en una silla cuando me siento estresado.,Sensorial,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
-155,3,155,La frase 'lleva el corazÃƒÂ³n en la mano' (ser muy expresivo/a) no tiene sentido para mÃƒÂ­.,Comunicacion,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
+152,3,152,"Me gusta que las cosas sean exactamente iguales día tras día, e incluso pequeños cambios en mi rutina me alteran.",Intereses,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
+153,3,153,Cómo hacer amigos y socializar es un misterio para mí.,Social,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
+154,3,154,Me calma girar sobre mí mismo o mecerme en una silla cuando me siento estresado.,Sensorial,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
+155,3,155,La frase 'lleva el corazón en la mano' (ser muy expresivo/a) no tiene sentido para mí.,Comunicacion,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
 156,3,156,"Si estoy en un lugar con muchos olores, texturas que sentir, ruidos o luces brillantes, me siento ansioso o asustado.",Sensorial,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
 157,3,157,Puedo darme cuenta cuando alguien dice una cosa pero quiere decir otra.,Comunicacion,inversa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
 158,3,158,Me gusta estar solo/a tanto como puedo.,Social,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
-159,3,159,"Guardo mis pensamientos apilados en mi memoria como si fueran fichas, y elijo los que necesito repasando la pila y encontrando el correcto (u otra forma ÃƒÂºnica de organizar pensamientos).",Intereses,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
+159,3,159,"Guardo mis pensamientos apilados en mi memoria como si fueran fichas, y elijo los que necesito repasando la pila y encontrando el correcto (u otra forma única de organizar pensamientos).",Intereses,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
 160,3,160,Disfruto pasando tiempo comiendo y hablando con mi familia y amigos.,Social,inversa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
 161,3,161,"No soporto cosas que me disgustan (como olores, texturas, sonidos o colores).",Sensorial,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
 162,3,162,No me gusta que me abracen o me sostengan.,Sensorial,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
-163,3,163,"Cuando voy a algÃƒÂºn lugar, tengo que seguir una ruta conocida o puedo confundirme y alterarme mucho.",Intereses,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
-164,3,164,Es difÃƒÂ­cil entender lo que los demÃƒÂ¡s esperan de mÃƒÂ­.,Social,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
-165,3,165,Me gusta tener amigos ÃƒÂ­ntimos.,Social,inversa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
+163,3,163,"Cuando voy a algún lugar, tengo que seguir una ruta conocida o puedo confundirme y alterarme mucho.",Intereses,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
+164,3,164,Es difícil entender lo que los demás esperan de mí.,Social,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
+165,3,165,Me gusta tener amigos íntimos.,Social,inversa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
 166,3,166,La gente me dice que doy demasiados detalles.,Comunicacion,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
 167,3,167,A menudo me dicen que hago preguntas embarazosas.,Comunicacion,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
-168,3,168,Suelo seÃƒÂ±alar los errores de los demÃƒÂ¡s.,Comunicacion,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
-169,3,169,"Un mismo sonido a veces me parece muy fuerte o muy suave, aunque sÃƒÂ© que no ha cambiado.",Sensorial,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
+168,3,168,Suelo señalar los errores de los demás.,Comunicacion,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
+169,3,169,"Un mismo sonido a veces me parece muy fuerte o muy suave, aunque sé que no ha cambiado.",Sensorial,directa,0-3,Nunca,A veces,Bastantes veces,Casi siempre,,
 170,4,1,Con frecuencia noto sonidos diminutos que otros no perciben.,Sensorial,directa,0-3,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,AQ-10 item 1
 171,4,2,Por lo general me concentro mas en el panorama general que en los detalles menores.,Intereses,inversa,0-3,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,AQ-10 item 2
 172,4,3,Me resulta facil hacer mas de una cosa a la vez.,Intereses,inversa,0-3,Totalmente de acuerdo,Algo de acuerdo,Algo en desacuerdo,Totalmente en desacuerdo,,AQ-10 item 3
