@@ -11,11 +11,18 @@ Contenido del PDF
   6. Detalle por test y dominio
   7. Referencias y pie de pagina
 """
+
+try:
+    import reportlab
+    st.success("✅ reportlab instalado correctamente")
+except ImportError:
+    st.error("❌ reportlab NO está instalado")
+
 from __future__ import annotations
  
 import io
 from datetime import datetime
- 
+
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
