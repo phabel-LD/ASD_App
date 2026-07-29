@@ -262,6 +262,9 @@ def generar_pdf(resultado: dict, nombre_evaluado: str = "") -> bytes:
             ("LEFTPADDING", (0, 0), (-1, -1), 6),
             ("ALIGN", (1, 1), (1, -1), "CENTER"),
         ])
+        nivel_color = score_info["color"]  # Ej: "#4CAF50", "#FF9800", etc.
+        s_score.add("TEXTCOLOR", (1, 3), (1, 3), colors.HexColor(nivel_color))
+        s_score.add("FONTNAME", (1, 3), (1, 3), "Helvetica-Bold")
         t_score.setStyle(s_score)
         e.append(t_score)
         e.append(Spacer(1, 0.3*cm))
