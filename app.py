@@ -41,7 +41,7 @@ from src.utils import (
     porcentaje_completado, DOMINIOS, ICONOS_DOMINIO, NOMBRES_TEST,
 )
 from src.calculador import (
-    calcular_puntuaciones, interpretar_media, RAADS_PUNTO_CORTE,
+    calcular_puntuaciones, interpretar_media, RAADS_PUNTO_CORTE, calcular_score_global,
 )
 from src.visualizador import (
     crear_radar, crear_barras_por_test, crear_gauge_raads, crear_tabla_detalles,
@@ -338,6 +338,34 @@ def pagina_informe():
                 f"<span style='color:{color}; font-weight:600'>{etiq}</span>",
                 unsafe_allow_html=True,
             )
+
+    st.divider()
+
+    # ── Score global ──────────────────────────────────────────────────────────
+    score_info = calcular_score_global(res)
+    if score_info["score"] is not None:
+        st.subheader("📊 Score Global (promedio de dominios)")
+        col_s1, col_s2, col_s3 = st.columns(3)
+        with col_s1:
+            st.metric("Score", f"{score_info['score']:.2f} / 3.00")
+        with col_s2:
+            st.metric("Punto de corte", "1.50")
+        with col_s3:
+            nivel_color = score_info["color"]
+            st.markdown(
+                f"**Nivel:** <span style='color:{nivel_color}; font-weight:bold'>{score_info['nivel']}</span>",
+                unsafe_allow_html=True,
+            )
+        if score_info["sobre_corte"]:
+            st.warning("⚠️ El puntaje supera el punto de corte (1.5). Se recomienda evaluación adicional.")
+        else:
+            st.success("✅ El puntaje está por debajo del punto de corte (1.5).")
+        st.caption(
+            f"Basado en {score_info['n_dominios']} dominio(s): "
+            f"{', '.join(score_info['dominios_usados'])}"
+        )
+    else:
+        st.info("No hay suficientes datos para calcular el score global.")
 
     st.divider()
 

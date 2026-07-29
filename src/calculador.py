@@ -57,8 +57,61 @@ def interpretar_aq10(puntuacion: int) -> tuple[str, str]:
         return f"Por encima del punto de corte ({AQ10_PUNTO_CORTE})", "#F44336"
     return f"Por debajo del punto de corte ({AQ10_PUNTO_CORTE})", "#4CAF50"
 
+# ── Score global ─────────────────────────────────────────────────────────────
 
+def calcular_score_global(resultado: dict) -> dict:
+    """
+    Calcula el score global como el promedio de las medias ponderadas por dominio
+    de los tests completados. Usa la misma escala 0-3 y los mismos rangos que el Test 1.
 
+    Parameters
+    ----------
+    resultado : dict devuelto por calcular_puntuaciones()
+
+    Returns
+    -------
+    {
+        "score": float | None,        # media global (0-3)
+        "nivel": str,                 # "Sin indicadores", "Leves", "Moderados", "Significativos"
+        "color": str,                 # color hexadecimal
+        "sobre_corte": bool,          # True si score >= 1.5
+        "dominios_usados": list[str], # dominios que contribuyeron al score
+        "n_dominios": int,            # número de dominios usados
+    }
+    """
+    global_por_dominio = resultado.get("global_por_dominio", {})
+    medias = []
+    dominios_usados = []
+
+    for dom, data in global_por_dominio.items():
+        media = data.get("media_ponderada")
+        if media is not None:
+            medias.append(media)
+            dominios_usados.append(dom)
+
+    if not medias:
+        return {
+            "score": None,
+            "nivel": "Sin datos",
+            "color": "#9E9E9E",
+            "sobre_corte": False,
+            "dominios_usados": [],
+            "n_dominios": 0,
+        }
+
+    score = sum(medias) / len(medias)
+    etiqueta, color = interpretar_media(score)
+
+    return {
+        "score": round(score, 3),
+        "nivel": etiqueta,
+        "color": color,
+        "sobre_corte": score >= 1.5,
+        "dominios_usados": dominios_usados,
+        "n_dominios": len(dominios_usados),
+    }
+
+# ── Agrupacion ─────────────────────────────────────────────────────────────
 
 def _agrupar_por_dominio(
     norm: dict[int, int],

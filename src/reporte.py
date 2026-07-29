@@ -29,7 +29,7 @@ from pathlib import Path
  
 from src.calculador import (
     interpretar_media, RAADS_PUNTO_CORTE, RAADS_MAX,
-    AQ10_PUNTO_CORTE, AQ10_MAX,
+    AQ10_PUNTO_CORTE, AQ10_MAX, calcular_score_global,
 )
 from src.utils import DOMINIOS, NOMBRES_TEST
 from src.visualizador import crear_radar, crear_barras_por_test
@@ -236,8 +236,48 @@ def generar_pdf(resultado: dict, nombre_evaluado: str = "") -> bytes:
     e.append(Paragraph("Rangos de interpretacion (orientativos, pendientes de validacion normativa):",
                         _ST["small"]))
     e += [t_ley, Spacer(1, 0.5*cm)]
+
+    # ── 3. Score global ───────────────────────────────────────────────────────────
+    score_info = calcular_score_global(resultado)
+    if score_info["score"] is not None:
+        e.append(Paragraph("Score Global (promedio de dominios)", _ST["h2"]))
+        datos_score = [
+            ["Concepto", "Valor"],
+            ["Score global", f"{score_info['score']:.2f} / 3.00"],
+            ["Punto de corte", "1.50"],
+            ["Nivel", score_info["nivel"]],
+            ["Estado", "Por encima del corte" if score_info["sobre_corte"] else "Por debajo del corte"],
+        ]
+        t_score = Table(datos_score, colWidths=[5*cm, 10*cm])
+        s_score = TableStyle([
+            ("BACKGROUND", (0, 0), (-1, 0), _AZUL),
+            ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
+            ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
+            ("FONTSIZE", (0, 0), (-1, -1), 9),
+            ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, _GRIS]),
+            ("GRID", (0, 0), (-1, -1), 0.35, colors.HexColor("#CCCCCC")),
+            ("TOPPADDING", (0, 0), (-1, -1), 5),
+            ("BOTTOMPADDING", (0, 0), (-1, -1), 5),
+            ("LEFTPADDING", (0, 0), (-1, -1), 6),
+            ("ALIGN", (1, 1), (1, -1), "CENTER"),
+        ])
+        t_score.setStyle(s_score)
+        e.append(t_score)
+        e.append(Spacer(1, 0.3*cm))
+        e.append(Paragraph(
+            f"Basado en {score_info['n_dominios']} dominio(s): "
+            f"{', '.join(score_info['dominios_usados'])}",
+            _ST["small"],
+        ))
+        e.append(Spacer(1, 0.5*cm))
+    else:
+        e.append(Paragraph(
+            "No hay suficientes datos para calcular el score global.",
+            _ST["normal"],
+        ))
+        e.append(Spacer(1, 0.5*cm))
  
-    # ── 3. Graficas ────────────────────────────────────────────────────────────
+    # ── 4. Graficas ────────────────────────────────────────────────────────────
     e.append(Paragraph("2. Visualizacion del perfil", _ST["h2"]))
  
     fig_radar  = crear_radar(glob)
@@ -264,7 +304,7 @@ def generar_pdf(resultado: dict, nombre_evaluado: str = "") -> bytes:
     ))
     e.append(Spacer(1, 0.5*cm))
  
-    # ── 4. RAADS-R ─────────────────────────────────────────────────────────────
+    # ── 5. RAADS-R ─────────────────────────────────────────────────────────────
     e.append(Paragraph("3. Puntuacion RAADS-R", _ST["h2"]))
     e += _tabla_corte(
         label="RAADS-R",
@@ -277,7 +317,7 @@ def generar_pdf(resultado: dict, nombre_evaluado: str = "") -> bytes:
                    f"corte = {RAADS_PUNTO_CORTE}/240. Escala: 0-3 por item (80 items).",
     )
  
-    # ── 5. AQ-10 ───────────────────────────────────────────────────────────────
+    # ── 6. AQ-10 ───────────────────────────────────────────────────────────────
     e.append(Paragraph("4. Puntuacion AQ-10 (Baron-Cohen)", _ST["h2"]))
     e += _tabla_corte(
         label="AQ-10",
@@ -290,7 +330,7 @@ def generar_pdf(resultado: dict, nombre_evaluado: str = "") -> bytes:
                    "para evaluacion diagnostica formal. No constituye diagnostico.",
     )
  
-    # ── 6. Detalle por test y dominio ──────────────────────────────────────────
+    # ── 7. Detalle por test y dominio ──────────────────────────────────────────
     e.append(Paragraph("5. Detalle por test y dominio", _ST["h2"]))
     por_test  = resultado["por_test"]
     datos_det = [["Dominio", "Test 1", "RAADS-R", "AQ-10"]]
@@ -311,7 +351,7 @@ def generar_pdf(resultado: dict, nombre_evaluado: str = "") -> bytes:
     ]))
     e += [t_det, Spacer(1, 0.6*cm)]
  
-    # ── 7. Referencias y pie ───────────────────────────────────────────────────
+    # ── 8. Referencias y pie ───────────────────────────────────────────────────
     e.append(HRFlowable(width="100%", thickness=0.5, color=colors.grey, spaceAfter=6))
     e.append(Paragraph("<b>Instrumentos e instrumentacion:</b>", _ST["small"]))
     refs = [
