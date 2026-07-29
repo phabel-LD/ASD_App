@@ -10,6 +10,10 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 
 import streamlit as st
+import json
+import pandas as pd
+import io
+from datetime import datetime
 
 st.set_page_config(
     page_title="Evaluación TEA",
@@ -66,6 +70,64 @@ for k, v in _DEF.items():
         st.session_state[k] = (set() if isinstance(v, set) else
                                dict(v) if isinstance(v, dict) else v)
 
+# ── Funciones de guardado / carga de sesión ──────────────────────────────────
+def serializar_estado() -> dict:
+    """Extrae el estado relevante de st.session_state para guardarlo."""
+    estado = {
+        "nombre": st.session_state.get("nombre", ""),
+        "respuestas": st.session_state.get("respuestas", {}),
+        "test_completados": list(st.session_state.get("test_completados", set())),
+        "idx": st.session_state.get("idx", {}),
+        "cola": st.session_state.get("cola", {}),
+    }
+    return estado
+
+def guardar_sesion() -> bytes:
+    """Genera un archivo CSV con el estado actual."""
+    estado = serializar_estado()
+    filas = []
+    for clave, valor in estado.items():
+        if isinstance(valor, (dict, list, set)):
+            valor = json.dumps(valor, ensure_ascii=False)
+        filas.append({"clave": clave, "valor": str(valor)})
+    df = pd.DataFrame(filas)
+    return df.to_csv(index=False).encode("utf-8")
+
+def cargar_sesion(archivo: io.BytesIO) -> dict:
+    """Lee un archivo CSV y devuelve un diccionario con el estado."""
+    df = pd.read_csv(archivo)
+    estado = {}
+    for _, row in df.iterrows():
+        clave = row["clave"]
+        valor = row["valor"]
+        if clave in ["respuestas", "idx", "cola"]:
+            try:
+                valor = json.loads(valor)
+            except:
+                pass
+        elif clave == "test_completados":
+            try:
+                valor = json.loads(valor)
+            except:
+                valor = []
+        estado[clave] = valor
+    return estado
+
+def restaurar_sesion(estado: dict):
+    """Actualiza st.session_state con el estado cargado."""
+    for clave, valor in estado.items():
+        if clave == "test_completados":
+            st.session_state[clave] = set(valor)
+        elif clave == "respuestas":
+            st.session_state[clave] = valor
+        elif clave == "idx":
+            st.session_state[clave] = valor
+        elif clave == "cola":
+            st.session_state[clave] = valor
+        elif clave == "nombre":
+            st.session_state[clave] = valor
+    st.rerun()
+
 # ── Sidebar ───────────────────────────────────────────────────────────────────
 PAGINAS = {
     "🏠 Inicio":           "inicio",
@@ -99,6 +161,34 @@ with st.sidebar:
             st.session_state[k] = (set() if isinstance(v, set) else
                                    dict(v) if isinstance(v, dict) else v)
         st.rerun()
+
+    # ─── GUARDAR / CARGAR SESIÓN ──────────────────────────────────────────────
+    st.divider()
+    st.subheader("💾 Sesión")
+    
+    # Descargar sesión
+    csv_data = guardar_sesion()
+    st.download_button(
+        "📥 Guardar sesión",
+        data=csv_data,
+        file_name=f"sesion_tea_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
+        mime="text/csv",
+        use_container_width=True,
+    )
+    
+    # Cargar sesión
+    uploaded = st.file_uploader(
+        "📤 Cargar sesión", type=["csv"],
+        key="upload_session",
+        label_visibility="collapsed",
+    )
+    if uploaded is not None:
+        try:
+            estado = cargar_sesion(uploaded)
+            restaurar_sesion(estado)
+            st.success("✅ Sesión restaurada correctamente")
+        except Exception as e:
+            st.error(f"Error al cargar: {e}")
 
 
 # ══════════════════════════════════════════════════════════════════════════════
