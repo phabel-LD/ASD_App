@@ -20,7 +20,7 @@ st.set_page_config(
 # Insertar Logo jpeg
 logo_path = Path(__file__).parent / "assets" / "logo.jpeg"
 # Crear tres columnas: la primera ocupa la mayor parte, la segunda y tercera son pequeñas
-col1, col2, col3 = st.columns([6, 1, 1])
+col1, col2, col3 = st.columns([3, 1, 3])
 with col3:  # Columna más a la derecha
     if logo_path.exists():
         st.image(str(logo_path), width=500)  # Ajusta el ancho (130 px es un buen tamaño para un logo cuadrado)
