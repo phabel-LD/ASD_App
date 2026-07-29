@@ -226,6 +226,8 @@ with st.sidebar:
             estado = cargar_sesion(uploaded)
             restaurar_sesion(estado)
             st.success("✅ Sesión restaurada correctamente")
+            st.session_state["upload_session"] = None
+            st.rerun()  # Forzar recarga para que se reflejen los cambios
         except Exception as e:
             st.error(f"Error al cargar: {e}")
 
