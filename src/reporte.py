@@ -477,6 +477,7 @@ def generar_pdf(resultado: dict, nombre_evaluado: str = "") -> bytes:
     e.append(Spacer(1, 0.5*cm))
 
     # ── 9. Cuadro de notas adicionales ───────────────────────────────────────────
+    e.append(PageBreak())
     e.append(Paragraph("📝 Notas adicionales", _ST["h3"]))
     
     # Creamos una tabla con una sola celda que actuará como recuadro
