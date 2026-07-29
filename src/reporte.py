@@ -502,6 +502,9 @@ def generar_pdf(resultado: dict, nombre_evaluado: str = "") -> bytes:
         [" "],
         [" "],
         [" "],
+        [" "],
+        [" "],
+        [" "],
         [" "],  # Ajusta el número de líneas según el espacio deseado
     ]
     
