@@ -18,7 +18,7 @@ st.set_page_config(
 )
 
 # Insertar Logo jpeg
-logo_path = Path(__file__).parent / "assets" / "logo.jpg"
+logo_path = Path(__file__).parent / "assets" / "logo.jpeg"
 # Crear tres columnas: la primera ocupa la mayor parte, la segunda y tercera son pequeñas
 col1, col2, col3 = st.columns([5, 1, 1])
 with col3:  # Columna más a la derecha
