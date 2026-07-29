@@ -24,6 +24,8 @@ from reportlab.platypus import (
     SimpleDocTemplate, Paragraph, Spacer,
     Table, TableStyle, HRFlowable, Image, KeepTogether,
 )
+
+from pathlib import Path
  
 from src.calculador import (
     interpretar_media, RAADS_PUNTO_CORTE, RAADS_MAX,
@@ -143,14 +145,45 @@ def generar_pdf(resultado: dict, nombre_evaluado: str = "") -> bytes:
     e = []
  
     # ── 0. Encabezado ──────────────────────────────────────────────────────────
-    e.append(Paragraph("Informe de Evaluacion - Espectro Autista", _ST["titulo"]))
-    e.append(Paragraph("Basado en el DSM-5", _ST["subtitulo"]))
+    logo_path = Path(__file__).parent.parent / "assets" / "logo.jpg"
+    
+    # Crear el contenido de la columna izquierda (titulo + info)
+    col_izq = []
+    col_izq.append(Paragraph("Informe de Evaluacion - Espectro Autista", _ST["titulo"]))
+    col_izq.append(Paragraph("Basado en el DSM-5", _ST["subtitulo"]))
     if nombre_evaluado:
-        e.append(Paragraph(f"Evaluado/a: <b>{nombre_evaluado}</b>", _ST["normal"]))
-    e.append(Paragraph(
+        col_izq.append(Paragraph(f"Evaluado/a: <b>{nombre_evaluado}</b>", _ST["normal"]))
+    col_izq.append(Paragraph(
         f"Fecha de evaluacion: {datetime.now().strftime('%d/%m/%Y  %H:%M')}",
         _ST["small"],
     ))
+    
+    # Convertir a lista de flowables para la tabla
+    # La tabla tendrá una fila y dos columnas: izq (ancha) y derecha (logo)
+    if logo_path.exists():
+        # Cargar el logo (tamaño moderado)
+        logo_img = Image(str(logo_path), width=2.2*cm, height=2.2*cm)
+        # Crear tabla
+        header_table = Table(
+            [[col_izq, logo_img]],
+            colWidths=[14*cm, 3*cm],  # Ajusta estos valores según el espacio que quieras
+        )
+        header_table.setStyle(TableStyle([
+            ('VALIGN', (0, 0), (-1, -1), 'TOP'),
+            ('ALIGN', (0, 0), (0, 0), 'LEFT'),
+            ('ALIGN', (1, 0), (1, 0), 'RIGHT'),
+            ('LEFTPADDING', (0, 0), (0, 0), 0),
+            ('RIGHTPADDING', (1, 0), (1, 0), 0),
+            ('TOPPADDING', (0, 0), (-1, -1), 0),
+            ('BOTTOMPADDING', (0, 0), (-1, -1), 0),
+        ]))
+        e.append(header_table)
+    else:
+        # Si no hay logo, mostrar solo el contenido de la izquierda
+        for item in col_izq:
+            e.append(item)
+    
+    # Línea decorativa después del encabezado
     e.append(HRFlowable(width="100%", thickness=1.5, color=_AZUL, spaceAfter=8))
  
     # ── 1. Advertencia clinica ─────────────────────────────────────────────────

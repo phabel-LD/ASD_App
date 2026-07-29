@@ -16,6 +16,18 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded",
 )
+
+# Insertar Logo jpeg
+logo_path = Path(__file__).parent / "assets" / "logo.jpg"
+# Crear tres columnas: la primera ocupa la mayor parte, la segunda y tercera son pequeñas
+col1, col2, col3 = st.columns([5, 1, 1])
+with col3:  # Columna más a la derecha
+    if logo_path.exists():
+        st.image(str(logo_path), width=130)  # Ajusta el ancho (130 px es un buen tamaño para un logo cuadrado)
+    else:
+        # Si el archivo no existe, muestra un espacio en blanco o un mensaje opcional
+        st.caption("")  # Espacio vacío    
+
 st.markdown("""
 <style>
   .block-container { padding-top: 1.6rem; }
