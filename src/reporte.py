@@ -251,7 +251,7 @@ def generar_pdf(resultado: dict, nombre_evaluado: str = "") -> bytes:
             ["Score global", f"{score_info['score']:.2f} / 3.00"],
             ["Punto de corte", "1.50"],
             ["Nivel", score_info["nivel"]],
-            ["Estado", "Por encima del corte" if score_info["sobre_corte"] else "Por debajo del corte"],
+            ["Estado", "POR ENCIMA del punto de corte" if score_info["sobre_corte"] else "Por debajo del punto de corte"],
         ]
         t_score = Table(datos_score, colWidths=[5*cm, 10*cm])
         s_score = TableStyle([
