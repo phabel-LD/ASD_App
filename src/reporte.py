@@ -357,8 +357,8 @@ def generar_pdf(resultado: dict, nombre_evaluado: str = "") -> bytes:
  
     fig_radar  = crear_radar(glob)
     fig_barras = crear_barras_por_test(resultado["por_test"])
-    img_radar  = _fig_a_imagen(fig_radar,  8.0, 7.0)
-    img_barras = _fig_a_imagen(fig_barras, 8.0, 12.0)
+    img_radar  = _fig_a_imagen(fig_radar,  8.0, 9.0)
+    img_barras = _fig_a_imagen(fig_barras, 8.0, 9.0)
  
     if img_radar and img_barras:
         fila_graficas = Table([[img_radar, img_barras]],
