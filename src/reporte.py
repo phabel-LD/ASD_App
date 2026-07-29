@@ -147,38 +147,28 @@ def generar_pdf(resultado: dict, nombre_evaluado: str = "") -> bytes:
     # ── 0. Encabezado ──────────────────────────────────────────────────────────
     logo_path = Path(__file__).parent.parent / "assets" / "logo.jpeg"
 
-    # Convertir a lista de flowables para la tabla
-    # La tabla tendrá una fila y dos columnas: izq (ancha) y derecha (logo)
+    # Logo primero (arriba, alineado a la derecha o centrado)
     if logo_path.exists():
-        # Cargar el logo (tamaño moderado)
-        logo_img = Image(str(logo_path), width=5*cm, height=1*cm)
-        # Crear tabla
-        header_table = Table(
-            [[col_izq, logo_img]],
-            colWidths=[13*cm, 4.5*cm],  # Ajusta estos valores según el espacio que quieras
-        )
-        header_table.setStyle(TableStyle([
-            ('VALIGN', (0, 0), (-1, -1), 'TOP'),
-            ('ALIGN', (0, 0), (0, 0), 'LEFT'),
-            ('ALIGN', (1, 0), (1, 0), 'RIGHT'),
-            ('LEFTPADDING', (0, 0), (0, 0), 0),
-            ('RIGHTPADDING', (1, 0), (1, 0), 0),
-            ('TOPPADDING', (0, 0), (-1, -1), 0),
-            ('BOTTOMPADDING', (0, 0), (-1, -1), 0),
+        logo_img = Image(str(logo_path), width=3.5*cm, height=3.5*cm)
+        # Alinear a la derecha: usamos una tabla con una fila y una columna, alineada a la derecha
+        logo_table = Table([[logo_img]], colWidths=[17*cm])
+        logo_table.setStyle(TableStyle([
+            ('ALIGN', (0, 0), (0, 0), 'RIGHT'),
+            ('VALIGN', (0, 0), (0, 0), 'TOP'),
+            ('TOPPADDING', (0, 0), (0, 0), 0),
+            ('BOTTOMPADDING', (0, 0), (0, 0), 2),  # pequeño espacio después del logo
         ]))
-        e.append(header_table)
+        e.append(logo_table)
     else:
-        # Si no hay logo, mostrar solo el contenido de la izquierda
-        for item in col_izq:
-            e.append(item)
+        # Si no hay logo, no añadimos nada
+        pass
     
-    # Crear el contenido de la columna izquierda (titulo + info)
-    col_izq = []
-    col_izq.append(Paragraph("Informe de Evaluacion - Espectro Autista", _ST["titulo"]))
-    col_izq.append(Paragraph("Basado en el DSM-5", _ST["subtitulo"]))
+    # Ahora el título y la información
+    e.append(Paragraph("Informe de Evaluacion - Espectro Autista", _ST["titulo"]))
+    e.append(Paragraph("Basado en el DSM-5", _ST["subtitulo"]))
     if nombre_evaluado:
-        col_izq.append(Paragraph(f"Evaluado/a: <b>{nombre_evaluado}</b>", _ST["normal"]))
-    col_izq.append(Paragraph(
+        e.append(Paragraph(f"Evaluado/a: <b>{nombre_evaluado}</b>", _ST["normal"]))
+    e.append(Paragraph(
         f"Fecha de evaluacion: {datetime.now().strftime('%d/%m/%Y  %H:%M')}",
         _ST["small"],
     ))
