@@ -149,7 +149,7 @@ def generar_pdf(resultado: dict, nombre_evaluado: str = "") -> bytes:
 
     # Logo primero (arriba, alineado a la derecha o centrado)
     if logo_path.exists():
-        logo_img = Image(str(logo_path), width=3.5*cm, height=3.5*cm)
+        logo_img = Image(str(logo_path), width=3.5*cm)
         # Alinear a la derecha: usamos una tabla con una fila y una columna, alineada a la derecha
         logo_table = Table([[logo_img]], colWidths=[17*cm])
         logo_table.setStyle(TableStyle([
