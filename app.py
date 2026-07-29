@@ -118,12 +118,35 @@ def restaurar_sesion(estado: dict):
     for clave, valor in estado.items():
         if clave == "test_completados":
             st.session_state[clave] = set(valor)
+        
         elif clave == "respuestas":
-            st.session_state[clave] = valor
+            # Convertir claves de respuestas a int
+            if isinstance(valor, dict):
+                respuestas_convertidas = {}
+                for k, v in valor.items():
+                    try:
+                        respuestas_convertidas[int(k)] = v
+                    except (ValueError, TypeError):
+                        respuestas_convertidas[k] = v
+                st.session_state[clave] = respuestas_convertidas
+            else:
+                st.session_state[clave] = valor
+        
         elif clave == "idx":
-            st.session_state[clave] = valor
+            # Convertir claves de idx a int
+            if isinstance(valor, dict):
+                idx_convertido = {}
+                for k, v in valor.items():
+                    try:
+                        idx_convertido[int(k)] = v
+                    except (ValueError, TypeError):
+                        idx_convertido[k] = v
+                st.session_state[clave] = idx_convertido
+            else:
+                st.session_state[clave] = valor
+        
         elif clave == "cola":
-            # Convertir claves a enteros (porque JSON las guarda como strings)
+            # Convertir claves de cola a int y asegurar que existan 1,3,4
             if isinstance(valor, dict):
                 cola_convertida = {}
                 for k, v in valor.items():
@@ -131,15 +154,17 @@ def restaurar_sesion(estado: dict):
                         cola_convertida[int(k)] = v
                     except (ValueError, TypeError):
                         cola_convertida[k] = v
-                # Asegurar que las claves 1, 3, 4 existan (inicializar vacías si faltan)
+                # Asegurar que las claves 1, 3, 4 existan
                 for tid in [1, 3, 4]:
                     if tid not in cola_convertida:
                         cola_convertida[tid] = []
                 st.session_state[clave] = cola_convertida
             else:
                 st.session_state[clave] = valor
+        
         elif clave == "nombre":
             st.session_state[clave] = valor
+    
     st.rerun()
 
 # ── Sidebar ───────────────────────────────────────────────────────────────────
