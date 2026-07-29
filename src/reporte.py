@@ -243,7 +243,7 @@ def generar_pdf(resultado: dict, nombre_evaluado: str = "") -> bytes:
     if score_info["score"] is not None:
         e.append(Paragraph("Score Global (promedio de dominios)", _ST["h2"]))
 
-        estado_texto = "Por encima del corte" if score_info["sobre_corte"] else "Por debajo del corte"
+        estado_texto = "POR ENCIMA del punto de corte" if score_info["sobre_corte"] else "Por debajo del punto de corte"
         estado_color = "#F44336" if score_info["sobre_corte"] else "#4CAF50"  # Rojo o Verde
 
         datos_score = [
@@ -271,7 +271,7 @@ def generar_pdf(resultado: dict, nombre_evaluado: str = "") -> bytes:
         s_score.add("FONTNAME", (1, 3), (1, 3), "Helvetica-Bold")
         s_score.add("TEXTCOLOR", (1, 4), (1, 4), colors.HexColor(estado_color))
         s_score.add("FONTNAME", (1, 4), (1, 4), "Helvetica-Bold")
-        
+
         t_score.setStyle(s_score)
         e.append(t_score)
         e.append(Spacer(1, 0.3*cm))
