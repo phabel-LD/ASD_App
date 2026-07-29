@@ -123,7 +123,21 @@ def restaurar_sesion(estado: dict):
         elif clave == "idx":
             st.session_state[clave] = valor
         elif clave == "cola":
-            st.session_state[clave] = valor
+            # Convertir claves a enteros (porque JSON las guarda como strings)
+            if isinstance(valor, dict):
+                cola_convertida = {}
+                for k, v in valor.items():
+                    try:
+                        cola_convertida[int(k)] = v
+                    except (ValueError, TypeError):
+                        cola_convertida[k] = v
+                # Asegurar que las claves 1, 3, 4 existan (inicializar vacías si faltan)
+                for tid in [1, 3, 4]:
+                    if tid not in cola_convertida:
+                        cola_convertida[tid] = []
+                st.session_state[clave] = cola_convertida
+            else:
+                st.session_state[clave] = valor
         elif clave == "nombre":
             st.session_state[clave] = valor
     st.rerun()
