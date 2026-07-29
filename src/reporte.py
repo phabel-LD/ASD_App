@@ -145,7 +145,7 @@ def generar_pdf(resultado: dict, nombre_evaluado: str = "") -> bytes:
     e = []
  
     # ── 0. Encabezado ──────────────────────────────────────────────────────────
-    logo_path = Path(__file__).parent.parent / "assets" / "logo.jpg"
+    logo_path = Path(__file__).parent.parent / "assets" / "logo.jpeg"
     
     # Crear el contenido de la columna izquierda (titulo + info)
     col_izq = []
