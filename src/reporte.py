@@ -27,7 +27,7 @@ from reportlab.platypus import (
 
 from pathlib import Path
  
-from src.calculador import (
+from calculador import (
     interpretar_media, RAADS_PUNTO_CORTE, RAADS_MAX,
     AQ10_PUNTO_CORTE, AQ10_MAX, calcular_score_global,
 )
