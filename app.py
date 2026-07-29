@@ -23,7 +23,7 @@ logo_path = Path(__file__).parent / "assets" / "logo.jpeg"
 col1, col2, col3 = st.columns([6, 1, 1])
 with col3:  # Columna más a la derecha
     if logo_path.exists():
-        st.image(str(logo_path), width=250)  # Ajusta el ancho (130 px es un buen tamaño para un logo cuadrado)
+        st.image(str(logo_path), width=500)  # Ajusta el ancho (130 px es un buen tamaño para un logo cuadrado)
     else:
         # Si el archivo no existe, muestra un espacio en blanco o un mensaje opcional
         st.caption("")  # Espacio vacío    
