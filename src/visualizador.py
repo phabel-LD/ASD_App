@@ -95,7 +95,7 @@ def crear_barras_por_test(resultados_por_test: dict) -> go.Figure:
         barmode="group",
         yaxis=dict(range=[0, 3.5], title="Media normalizada (0-3)"),
         xaxis_title="Dominio clínico",
-        legend=dict(orientation="h", y=-0.4, font_size=11),
+        legend=dict(orientation="h", y=-0.45, font_size=11),
         margin=dict(t=40, b=90, l=55, r=30),
         height=390,
         title=dict(text="Comparación por test y dominio", font_size=14, x=0.5),
