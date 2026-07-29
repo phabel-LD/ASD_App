@@ -162,11 +162,11 @@ def generar_pdf(resultado: dict, nombre_evaluado: str = "") -> bytes:
     # La tabla tendrá una fila y dos columnas: izq (ancha) y derecha (logo)
     if logo_path.exists():
         # Cargar el logo (tamaño moderado)
-        logo_img = Image(str(logo_path), width=2.2*cm, height=2.2*cm)
+        logo_img = Image(str(logo_path), width=5*cm)
         # Crear tabla
         header_table = Table(
             [[col_izq, logo_img]],
-            colWidths=[14*cm, 3*cm],  # Ajusta estos valores según el espacio que quieras
+            colWidths=[13*cm, 4.5*cm],  # Ajusta estos valores según el espacio que quieras
         )
         header_table.setStyle(TableStyle([
             ('VALIGN', (0, 0), (-1, -1), 'TOP'),
