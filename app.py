@@ -30,7 +30,7 @@ with col3:  # Columna más a la derecha
 
 st.markdown("""
 <style>
-  .block-container { padding-top: 2.8rem; }
+  .block-container { padding-top: 5rem; }
   .stProgress > div > div > div > div { background-color: #4C72B0; }
   div[data-testid="stRadio"] label { font-size: 0.96rem; }
 </style>
