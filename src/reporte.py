@@ -24,6 +24,7 @@ from reportlab.lib.units import cm
 from reportlab.platypus import (
     SimpleDocTemplate, Paragraph, Spacer,
     Table, TableStyle, HRFlowable, Image, KeepTogether,
+    PageBreak,
 )
 
 from pathlib import Path
