@@ -4,6 +4,13 @@ app.py – Sistema Integrado de Evaluación del Espectro Autista.
 Ejecutar con:
     streamlit run app.py
 """
+
+try:
+    import reportlab
+    st.success("✅ reportlab instalado correctamente")
+except ImportError:
+    st.error("❌ reportlab NO está instalado")
+
 import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))

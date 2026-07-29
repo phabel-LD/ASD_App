@@ -12,12 +12,6 @@ Contenido del PDF
   7. Referencias y pie de pagina
 """
 
-try:
-    import reportlab
-    st.success("✅ reportlab instalado correctamente")
-except ImportError:
-    st.error("❌ reportlab NO está instalado")
-
 from __future__ import annotations
  
 import io
