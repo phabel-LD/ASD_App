@@ -238,8 +238,50 @@ def generar_pdf(resultado: dict, nombre_evaluado: str = "") -> bytes:
                         _ST["small"]))
     e += [t_ley, Spacer(1, 0.5*cm)]
 
+    # ── Interpretación del perfil global ──────────────────────────────────────
+    e.append(Paragraph("¿Qué significa este perfil?", _ST["h3"]))
+    
+    niveles = []
+    for dom in DOMINIOS:
+        m = resultado["global_por_dominio"][dom]["media_ponderada"]
+        if m is not None:
+            etiq, _ = interpretar_media(m)
+            niveles.append((dom, etiq, m))
+    
+    if niveles:
+        niveles.sort(key=lambda x: x[2] if x[2] is not None else 0, reverse=True)
+        mayor = niveles[0]
+        texto_perfil = (
+            f"En general, tus respuestas muestran que el área con mayor puntuación "
+            f"es <b>{mayor[0]}</b>, con un nivel <b>{mayor[1].lower()}</b>. "
+            "Esto significa que podrías experimentar más dificultades en esa área "
+            "que en las demás. A continuación, te explicamos qué significan los niveles:"
+        )
+        e.append(Paragraph(texto_perfil, _ST["normal"]))
+        e.append(Spacer(1, 0.2*cm))
+    
+    niveles_texto = (
+        "• <b>Sin indicadores</b>: no se observan señales relevantes en esta área.<br/>"
+        "• <b>Leves</b>: algunas dificultades que pueden ser normales o subclínicas.<br/>"
+        "• <b>Moderados</b>: dificultades que merecen atención y seguimiento.<br/>"
+        "• <b>Significativos</b>: señales marcadas que sugieren la necesidad de una evaluación profesional."
+    )
+    e.append(Paragraph(niveles_texto, _ST["normal"]))
+    e.append(Spacer(1, 0.4*cm))
+
     # ── 3. Score global ───────────────────────────────────────────────────────────
     score_info = calcular_score_global(resultado)
+
+    # Interpretacion del RAADS-R
+    raads_bruta = resultado["raads_bruta"]
+    raads_sobre = resultado["raads_sobre_corte"]
+    e.append(Paragraph("¿Qué significa tu resultado en el RAADS-R?", _ST["h3"]))
+
+    # Interpretacion del AQ-10
+    aq10_bruta = resultado["aq10_bruta"]
+    aq10_sobre = resultado["aq10_sobre_corte"]
+    e.append(Paragraph("¿Qué significa tu resultado en el AQ-10?", _ST["h3"]))
+
     if score_info["score"] is not None:
         e.append(Paragraph("Score Global (promedio de dominios)", _ST["h2"]))
 
@@ -287,7 +329,28 @@ def generar_pdf(resultado: dict, nombre_evaluado: str = "") -> bytes:
             _ST["normal"],
         ))
         e.append(Spacer(1, 0.5*cm))
- 
+
+    # ── Interpretación del score global ──────────────────────────────────────
+    e.append(Paragraph("¿Qué significa tu puntuación global?", _ST["h3"]))
+    if score_info["score"] is not None:
+        if score_info["sobre_corte"]:
+            texto_score = (
+                f"Tu puntuación global es <b>{score_info['score']:.2f}</b> sobre 3.00, "
+                "lo que está <b>por encima del punto de corte (1.50)</b>. "
+                "Esto indica que, en conjunto, tus respuestas reflejan características "
+                "que podrían ser compatibles con el espectro autista. "
+                "Sería recomendable que un profesional especializado valore tu caso con más detalle."
+            )
+        else:
+            texto_score = (
+                f"Tu puntuación global es <b>{score_info['score']:.2f}</b> sobre 3.00, "
+                "lo que está <b>por debajo del punto de corte (1.50)</b>. "
+                "Esto sugiere que, en general, tus respuestas no muestran una cantidad "
+                "de características que indiquen un perfil claramente asociado al espectro autista. "
+                "Si tienes dudas o preocupaciones, siempre es bueno consultar con un profesional."
+            )
+        e.append(Paragraph(texto_score, _ST["normal"]))
+        e.append(Spacer(1, 0.4*cm))
     # ── 4. Graficas ────────────────────────────────────────────────────────────
     e.append(Paragraph("2. Visualizacion del perfil", _ST["h2"]))
  
@@ -327,7 +390,27 @@ def generar_pdf(resultado: dict, nombre_evaluado: str = "") -> bytes:
         referencia="Ritvo et al. (2011): sensibilidad 97%, especificidad 100%, "
                    f"corte = {RAADS_PUNTO_CORTE}/240. Escala: 0-3 por item (80 items).",
     )
- 
+
+    # ── Interpretación del RAADS-R ────────────────────────────────────────────
+    e.append(Paragraph("¿Qué significa tu resultado en el RAADS-R?", _ST["h3"]))
+    if raads_sobre:
+        texto_raads = (
+            f"Has obtenido <b>{raads_bruta} puntos</b> de 240 en el RAADS-R. "
+            "Este resultado está <b>por encima del punto de corte (65 puntos)</b>. "
+            "Esto significa que tus respuestas son similares a las de personas que han recibido "
+            "un diagnóstico de autismo. Es importante que un especialista interprete este resultado "
+            "en el contexto de tu historia personal y tu desarrollo."
+        )
+    else:
+        texto_raads = (
+            f"Has obtenido <b>{raads_bruta} puntos</b> de 240 en el RAADS-R. "
+            "Este resultado está <b>por debajo del punto de corte (65 puntos)</b>. "
+            "Esto sugiere que tus respuestas no muestran un patrón claramente asociado al autismo. "
+            "Recuerda que este es solo un cuestionario de detección, no un diagnóstico."
+        )
+    e.append(Paragraph(texto_raads, _ST["normal"]))
+    e.append(Spacer(1, 0.4*cm))
+
     # ── 6. AQ-10 ───────────────────────────────────────────────────────────────
     e.append(Paragraph("4. Puntuacion AQ-10 (Baron-Cohen)", _ST["h2"]))
     e += _tabla_corte(
@@ -340,6 +423,25 @@ def generar_pdf(resultado: dict, nombre_evaluado: str = "") -> bytes:
         referencia="Allison et al. (2012): punto de corte >= 6/10 indica derivacion "
                    "para evaluacion diagnostica formal. No constituye diagnostico.",
     )
+
+    # ── Interpretación del AQ-10 ──────────────────────────────────────────────
+    e.append(Paragraph("¿Qué significa tu resultado en el AQ-10?", _ST["h3"]))
+    if aq10_sobre:
+        texto_aq = (
+            f"Has obtenido <b>{aq10_bruta} puntos</b> de 10 en el AQ-10. "
+            "Este resultado está <b>por encima del punto de corte (6 puntos)</b>. "
+            "Esto indica que podrías presentar algunas características asociadas al espectro autista. "
+            "Sería aconsejable realizar una evaluación más completa con un profesional."
+        )
+    else:
+        texto_aq = (
+            f"Has obtenido <b>{aq10_bruta} puntos</b> de 10 en el AQ-10. "
+            "Este resultado está <b>por debajo del punto de corte (6 puntos)</b>. "
+            "Esto sugiere que tus respuestas no indican una cantidad significativa de características "
+            "autistas. Este cuestionario es solo una herramienta de detección rápida."
+        )
+    e.append(Paragraph(texto_aq, _ST["normal"]))
+    e.append(Spacer(1, 0.4*cm))
  
     # ── 7. Detalle por test y dominio ──────────────────────────────────────────
     e.append(Paragraph("5. Detalle por test y dominio", _ST["h2"]))
@@ -361,6 +463,18 @@ def generar_pdf(resultado: dict, nombre_evaluado: str = "") -> bytes:
         ("ALIGN", (1, 0), (-1, -1), "CENTER"),
     ]))
     e += [t_det, Spacer(1, 0.6*cm)]
+
+    # ── Mensaje final ──────────────────────────────────────────────────────────
+    e.append(Paragraph("💬 ¿Y ahora qué?", _ST["h3"]))
+    texto_final = (
+        "Este informe es una <b>herramienta de apoyo</b>, no un diagnóstico. "
+        "Los cuestionarios son indicadores, pero solo un profesional de la salud mental "
+        "puede realizar una evaluación completa y ofrecer un diagnóstico preciso. "
+        "Si tienes dudas o inquietudes, te animamos a buscar asesoramiento con un psicólogo o psiquiatra "
+        "especializado en autismo. Tu bienestar es lo más importante."
+    )
+    e.append(Paragraph(texto_final, _ST["normal"]))
+    e.append(Spacer(1, 0.5*cm))
  
     # ── 8. Referencias y pie ───────────────────────────────────────────────────
     e.append(HRFlowable(width="100%", thickness=0.5, color=colors.grey, spaceAfter=6))
