@@ -167,6 +167,19 @@ def restaurar_sesion(estado: dict):
     
     st.rerun()
 
+def procesar_archivo():
+    """Callback que se ejecuta cuando se sube un archivo."""
+    uploaded = st.session_state.get("upload_session")
+    if uploaded is not None:
+        try:
+            estado = cargar_sesion(uploaded)
+            restaurar_sesion(estado)
+            st.success("✅ Sesión restaurada correctamente")
+            # Limpiar el uploader
+            st.session_state["upload_session"] = None
+        except Exception as e:
+            st.error(f"Error al cargar: {e}")
+
 # ── Sidebar ───────────────────────────────────────────────────────────────────
 PAGINAS = {
     "🏠 Inicio":           "inicio",
@@ -215,12 +228,14 @@ with st.sidebar:
         use_container_width=True,
     )
     
-    # Cargar sesión
-    uploaded = st.file_uploader(
+    # Cargar sesión con callback
+    st.file_uploader(
         "📤 Cargar sesión", type=["csv"],
         key="upload_session",
         label_visibility="collapsed",
+        on_change=procesar_archivo,
     )
+    
     if uploaded is not None:
         try:
             estado = cargar_sesion(uploaded)
