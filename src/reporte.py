@@ -28,12 +28,12 @@ from reportlab.platypus import (
 
 from pathlib import Path
  
-from calculador import (
+from src.calculador import (
     interpretar_media, RAADS_PUNTO_CORTE, RAADS_MAX,
     AQ10_PUNTO_CORTE, AQ10_MAX, calcular_score_global,
 )
-from utils import DOMINIOS, NOMBRES_TEST
-from visualizador import crear_radar, crear_barras_por_test
+from src.utils import DOMINIOS, NOMBRES_TEST
+from src.visualizador import crear_radar, crear_barras_por_test
  
 # ── Paleta ─────────────────────────────────────────────────────────────────────
 _AZUL      = colors.HexColor("#4C72B0")
