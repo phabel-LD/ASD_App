@@ -464,7 +464,7 @@ def generar_pdf(resultado: dict, nombre_evaluado: str = "") -> bytes:
     ]))
     e += [t_det, Spacer(1, 0.6*cm)]
 
-    # ── Mensaje final ──────────────────────────────────────────────────────────
+    # ── 8. Mensaje final ──────────────────────────────────────────────────────────
     e.append(Paragraph("💬 ¿Y ahora qué?", _ST["h3"]))
     texto_final = (
         "Este informe es una <b>herramienta de apoyo</b>, no un diagnóstico. "
@@ -475,8 +475,46 @@ def generar_pdf(resultado: dict, nombre_evaluado: str = "") -> bytes:
     )
     e.append(Paragraph(texto_final, _ST["normal"]))
     e.append(Spacer(1, 0.5*cm))
+
+    # ── 9. Cuadro de notas adicionales ───────────────────────────────────────────
+    e.append(Paragraph("📝 Notas adicionales", _ST["h3"]))
+    
+    # Creamos una tabla con una sola celda que actuará como recuadro
+    notas_data = [
+        ["Espacio para observaciones, comentarios o recomendaciones adicionales:"],
+        [" "],  # Línea en blanco para escribir
+        [" "],
+        [" "],
+        [" "],
+        [" "],
+        [" "],
+        [" "],
+        [" "],
+        [" "],  # Ajusta el número de líneas según el espacio deseado
+    ]
+    
+    notas_tabla = Table(notas_data, colWidths=[16*cm])
+    notas_tabla.setStyle(TableStyle([
+        ('BOX', (0, 0), (-1, -1), 1.5, colors.HexColor("#CCCCCC")),
+        ('BACKGROUND', (0, 0), (-1, -1), colors.white),
+        ('FONTNAME', (0, 0), (-1, -1), "Helvetica"),
+        ('FONTSIZE', (0, 0), (-1, -1), 9),
+        ('TOPPADDING', (0, 0), (-1, -1), 6),
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 6),
+        ('LEFTPADDING', (0, 0), (-1, -1), 8),
+        ('RIGHTPADDING', (0, 0), (-1, -1), 8),
+        ('ALIGN', (0, 0), (0, 0), 'LEFT'),  # El texto de la primera fila alineado a la izquierda
+    ]))
+    # Para la fila de título (índice 0), ponemos el texto en negrita (opcional)
+    notas_tabla.setStyle(TableStyle([
+        ('FONTNAME', (0, 0), (0, 0), "Helvetica-Bold"),
+        ('FONTSIZE', (0, 0), (0, 0), 9),
+        ('TOPPADDING', (0, 0), (0, 0), 8),
+    ]))
+    e.append(notas_tabla)
+    e.append(Spacer(1, 0.5*cm))
  
-    # ── 8. Referencias y pie ───────────────────────────────────────────────────
+    # ── 10. Referencias y pie ───────────────────────────────────────────────────
     e.append(HRFlowable(width="100%", thickness=0.5, color=colors.grey, spaceAfter=6))
     e.append(Paragraph("<b>Instrumentos e instrumentacion:</b>", _ST["small"]))
     refs = [
