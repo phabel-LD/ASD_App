@@ -12,8 +12,8 @@ from __future__ import annotations
 import numpy as np
 import pandas as pd
 
-from src.normalizador import normalizar_respuestas_dict
-from src.utils import DOMINIOS
+from normalizador import normalizar_respuestas_dict
+from utils import DOMINIOS
 
 RAADS_PUNTO_CORTE = 65
 RAADS_MAX         = 240   # 80 ítems × 3

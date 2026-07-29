@@ -12,8 +12,8 @@ from __future__ import annotations
 
 import plotly.graph_objects as go
 
-from src.utils import DOMINIOS, NOMBRES_TEST, COLORES_TEST
-from src.calculador import RAADS_PUNTO_CORTE, RAADS_MAX, AQ10_PUNTO_CORTE, AQ10_MAX, interpretar_media
+from utils import DOMINIOS, NOMBRES_TEST, COLORES_TEST
+from calculador import RAADS_PUNTO_CORTE, RAADS_MAX, AQ10_PUNTO_CORTE, AQ10_MAX, interpretar_media
 
 _LABELS = {
     "Social":       "Social",

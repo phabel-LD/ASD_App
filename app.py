@@ -11,12 +11,6 @@ sys.path.insert(0, str(Path(__file__).parent))
 
 import streamlit as st
 
-try:
-    import reportlab
-    st.success("✅ reportlab instalado correctamente")
-except ImportError:
-    st.error("❌ reportlab NO está instalado")
-
 st.set_page_config(
     page_title="Evaluación TEA",
     page_icon="🧩",
