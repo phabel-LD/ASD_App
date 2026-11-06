@@ -183,7 +183,7 @@ def procesar_archivo():
 # ── Sidebar ───────────────────────────────────────────────────────────────────
 PAGINAS = {
     "🏠 Inicio":           "inicio",
-    "📝 Test 1":           "test1",
+    "📝 Personalizado":    "test1",
     "📊 RAADS-R":          "test3",
     "🧮 AQ-10":            "test4",
     "📄 Informe":          "informe",
