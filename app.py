@@ -248,8 +248,8 @@ def pagina_inicio():
         "informe unificado por dominio clínico."
     )
     st.info(
-        "Esta herramienta es un **apoyo a la evaluación clínica**, no sustituye "
-        "el juicio profesional ni constituye un diagnóstico.",
+        "Esta herramienta es parte de una **evolución clínica** y el **diagnóstico** "
+        "se interpreta por el profesional al final de su historia clínica.",
         icon="⚠️",
     )
 
